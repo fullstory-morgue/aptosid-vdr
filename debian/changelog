@@ -1,15 +1,19 @@
 kanotix-vdr (1.2.5) UNRELEASE; urgency=low
 
+  [ Horst Tritremmel ]
   * NOT RELEASED YET
-  * add vdr-sxfe and vdr-fbfe (Framebuffer) TV-Picture tool, 
+  * add vdr-sxfe and vdr-fbfe (Framebuffer) TV-Picture tool,
     correct OSD Scaling with this tools
-  * setup.conf changed, for transparent OSD with channels 
+  * setup.conf changed, for transparent OSD with channels
     who send low-res video, doesn't work in xine-ui
-  * add remote.conf for vdr-sxfe and vdr-fbfe keymap control, 
+  * add remote.conf for vdr-sxfe and vdr-fbfe keymap control,
     vdr-fbfe Keys needs  KEYB_TTY=/dev/tty12  in /etc/default/vdr
   * kanotix-vdr (vdr-start-menu) works in Console Mode [Cntr] + [Fx] now
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 23 Nov 2006 15:24:25 +0100
+  [ Stefan Lippers-Hollmann ]
+  * re- indent.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 23 Nov 2006 16:31:54 +0100
 
 kanotix-vdr (1.2.4) unstable; urgency=low
 

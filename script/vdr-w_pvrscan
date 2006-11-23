@@ -30,10 +30,10 @@ chown vdr:vdr /var/lib/vdr/channels.conf
 echo $"/var/lib/vdr/channels.conf done, Backup of existing channels.conf see $BACKUPFILE"
 
 if [ "$DIALOG" = "dialog" ]; then
-   vdr-start
-   TIMEOUT=""
+	vdr-start
+	TIMEOUT=""
 else
-   rxvt -C -e vdr-start
-   TIMEOUT=40000
+	rxvt -C -e vdr-start
+	TIMEOUT=40000
 fi
 

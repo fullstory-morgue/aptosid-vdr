@@ -20,12 +20,12 @@ $DIALOG --title $"Xine Autostart" --yesno $"Shall Xine-Player (TV Picture) be st
 if [ "$answer_autostart" = 0 ] ; then
 	#cp /usr/sbin/vdr-xine $HOME/.kde/Autostart
 	ln -s /usr/sbin/vdr-xine $HOME/.kde/Autostart
-        echo
-        echo $"Xine Autostart active!"
+	echo
+	echo $"Xine Autostart active!"
 else
-        rm -f $HOME/.kde/Autostart/vdr-xine
-        echo
-        echo $"Xine Autostart not active!"
+	rm -f $HOME/.kde/Autostart/vdr-xine
+	echo
+	echo $"Xine Autostart not active!"
 fi
 
 echo

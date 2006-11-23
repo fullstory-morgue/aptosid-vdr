@@ -10,13 +10,13 @@ DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 if [ ! -e $HOME/vdrip.conf ]; then
-   VDRIP=`$DIALOG --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
-   if [ "$VDRIP" = "" ]; then
-	exit;
-   fi
-   echo $VDRIP > $HOME/vdrip.conf
- else
-   VDRIP=`head -1 $HOME/vdrip.conf`
+	VDRIP=`$DIALOG --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
+	if [ "$VDRIP" = "" ]; then
+		exit;
+	fi
+	echo $VDRIP > $HOME/vdrip.conf
+else
+	VDRIP=`head -1 $HOME/vdrip.conf`
 fi
 
 # is vdr running
@@ -39,11 +39,11 @@ MRL="xvdr:${NetworkTransportMode}://$VDRIP"
 [ -f "$USERCONFIG" ] && [ "$(grep ^XinePlugin $USERCONFIG | cut -d= -f2)" -eq 1 ] && MRL="vdr-socket:/"$VDRIP"#demux:mpeg_pes"
 
 if [ -z "$DISPLAY" ]; then
-   fuser -k /dev/dsp &>/dev/null
-   clear
-   vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
-   reset
+	fuser -k /dev/dsp &>/dev/null
+	clear
+	vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
+	reset
 else
-   [ "$1" = "sxfe" ] && vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
-   [ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
+	[ "$1" = "sxfe" ] && vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+	[ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi

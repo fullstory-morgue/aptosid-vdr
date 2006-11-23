@@ -9,14 +9,12 @@ DIALOG="dialog"
 
 TMP="/tmp/vdrip.tmp"
 
-#if [ -e $HOME/vdrip.conf ]; then
-   IP="localhost"
-   [ -e $HOME/vdrip.conf ] && IP=`head -1 $HOME/vdrip.conf`
+IP="localhost"
+[ -e $HOME/vdrip.conf ] && IP=`head -1 $HOME/vdrip.conf`
 
-   $DIALOG --inputbox $"VDR Server IP" 10 50 "$IP" 2>"$TMP"
-   VDRIP="$(<$TMP)"
-   if [ "$VDRIP" = "" ]; then
-	     exit 0;
-   fi
-   echo "$VDRIP" > "$HOME/vdrip.conf"
-#fi
+$DIALOG --inputbox $"VDR Server IP" 10 50 "$IP" 2>"$TMP"
+VDRIP="$(<$TMP)"
+if [ "$VDRIP" = "" ]; then
+	exit 0;
+fi
+echo "$VDRIP" > "$HOME/vdrip.conf"

@@ -2,4 +2,3 @@
 /etc/init.d/vdr stop
 /etc/init.d/vdradmin-am stop
 sleep 3
-

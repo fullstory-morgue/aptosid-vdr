@@ -18,9 +18,9 @@ DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 for index in $PART; do
-    z=`expr $z + 1`
-    line=`echo $index | tr ',' ' '`
-    PART_Xdialog="$PART_Xdialog $line"
+	z=`expr $z + 1`
+	line=`echo $index | tr ',' ' '`
+	PART_Xdialog="$PART_Xdialog $line"
 done
 
 TMP="/tmp/videodir.tmp"
@@ -69,14 +69,11 @@ rm -f /var/lib/video && ln -s $VIDEO_DIR /var/lib/video
 chown -R vdr:vdr $VIDEO_DIR /var/lib/video
 
 if [ "$DIALOG" = "dialog" ]; then
-   vdr-start
-   TIMEOUT=""
+	vdr-start
+	TIMEOUT=""
 else
-   rxvt -C -e vdr-start
-   TIMEOUT=40000
+	rxvt -C -e vdr-start
+	TIMEOUT=40000
 fi
 
 $DIALOG --infobox $"Your new video directory: $VIDEO_DIR" 10 60 $TIMEOUT
-
-#/etc/init.d/vdr start
-

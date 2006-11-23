@@ -15,25 +15,23 @@ FLL_DISTRO_MODE="installed"
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
 if [ "$(grep ^LanguageMode $CONFIGFILE | cut -d= -f2)" -ne 1 ]; then
-    # Set VDR-language automatically
-    # source sysconfig to detect the default system language
-    [ -f /etc/sysconfig/i18n ] && . /etc/sysconfig/i18n
-    lang=$(grep ^OSDLanguage /var/lib/vdr/setup.conf | cut -d= -f2)
-    [ "$lang" ] && old=$(echo $lang)
-    [ -z "$lang" ] && old=0
-    new=0 # default language, if detected language is not German
-    [ "$LANGUAGE" = "de" ] && new=1
-    if [ "$old" != "$new" ]; then
-        if [ -z "$lang" ]; then
-            echo "OSDLanguage = $new" >> /var/lib/vdr/setup.conf
-        else
-            perl -pi -e "s/^OSDLanguage =.*$/OSDLanguage = $new/" /var/lib/vdr/setup.conf
-        fi
-    fi
+	# Set VDR-language automatically
+	lang=$(grep ^OSDLanguage /var/lib/vdr/setup.conf | cut -d= -f2)
+	[ "$lang" ] && old=$(echo $lang)
+	[ -z "$lang" ] && old=0
+	new=0 # default language, if detected language is not German
+	[ "$(echo $LANG | cut -d\_ -f1)" = "de" ] && new=1
+	
+	if [ "$old" != "$new" ]; then
+		if [ -z "$lang" ]; then
+			echo "OSDLanguage = $new" >> /var/lib/vdr/setup.conf
+		else
+			perl -pi -e "s/^OSDLanguage =.*$/OSDLanguage = $new/" /var/lib/vdr/setup.conf
+		fi
+	fi
 fi
 
 /etc/init.d/vdr restart
 /etc/init.d/vdradmin-am restart
 echo $"Please wait ..."
 sleep 10
-
