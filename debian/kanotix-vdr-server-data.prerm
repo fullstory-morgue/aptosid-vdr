@@ -1,6 +1,6 @@
 #! /bin/sh
 
-CONFFILES="setup.conf remote.KBD.conf"
+CONFFILES="setup.conf remote.conf remote.KBD.conf remote.XKeySym.conf"
 
 case "$1" in
     purge)

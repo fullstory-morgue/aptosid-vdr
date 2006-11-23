@@ -6,8 +6,11 @@ USERCONFIG="$HOME/.kanotix-vdr.conf"
 TEXTDOMAINDIR="/usr/share/locale"
 TEXTDOMAIN=kanotix-vdr
 
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
 if [ ! -e $HOME/vdrip.conf ]; then
-   VDRIP=`Xdialog --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
+   VDRIP=`$DIALOG --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
    if [ "$VDRIP" = "" ]; then
 	exit;
    fi
@@ -32,14 +35,15 @@ XineFullscreen=""
 NetworkTransportMode="tcp"
 [ -f "$USERCONFIG" ] && [ "$(grep ^NetworkTransportMode $USERCONFIG | cut -d= -f2)" -eq 1 ] && NetworkTransportMode="udp"
 
-MRL="xvdr:${NetworkTransportMode}://$VDRIP#nocache;demux:mpeg_block"
+MRL="xvdr:${NetworkTransportMode}://$VDRIP"
 [ -f "$USERCONFIG" ] && [ "$(grep ^XinePlugin $USERCONFIG | cut -d= -f2)" -eq 1 ] && MRL="vdr-socket:/"$VDRIP"#demux:mpeg_pes"
 
-[ -n "$DISPLAY" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL" &
 if [ -z "$DISPLAY" ]; then
    fuser -k /dev/dsp &>/dev/null
    clear
-   fbxine "$MRL" &>/dev/null
+   vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
    reset
+else
+   [ "$1" = "sxfe" ] && vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+   [ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi
-

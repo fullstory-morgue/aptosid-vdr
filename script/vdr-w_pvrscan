@@ -7,6 +7,9 @@ export TEXTDOMAIN=kanotix-vdr
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
 
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
 [ -r /etc/default/distro ] && source /etc/default/distro
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
@@ -26,6 +29,11 @@ chown vdr:vdr /var/lib/vdr/channels.conf
 
 echo $"/var/lib/vdr/channels.conf done, Backup of existing channels.conf see $BACKUPFILE"
 
-rxvt -C -e /usr/sbin/vdr-start
-echo $"Press any key" && read
+if [ "$DIALOG" = "dialog" ]; then
+   vdr-start
+   TIMEOUT=""
+else
+   rxvt -C -e vdr-start
+   TIMEOUT=40000
+fi
 

@@ -33,7 +33,7 @@ Description: metapackage to install the kanotix-vdr-menu and xine
 
 Package: kanotix-vdr-client
 Architecture: all
-Depends: kanotix-vdr-client-data|kanotix-vdr-data, libxine-xvdr, libxine1, xine-ui
+Depends: kanotix-vdr-client-data|kanotix-vdr-data, libxine-xvdr, libxine1, xine-ui | libxineliboutput-sxfe | xineliboutput-sxfe | libxineliboutput-fbfe | xineliboutput-fbfe | kaffeine
 Replaces: kanotix-vdr-xine
 Conflicts: kanotix-vdr-xine, kanotix-vdr (<= 1.2.1-7.1)
 Description: metapackage to install the kanotix-vdr-menu and xine
@@ -43,7 +43,7 @@ Description: metapackage to install the kanotix-vdr-menu and xine
 
 Package: kanotix-vdr-server-data
 Architecture: all
-Depends: vdr, xdialog, rxvt, kanotix-su, w-pvrscan
+Depends: vdr, dialog, xdialog, rxvt, kanotix-su, w-pvrscan
 Recommends: distro-defaults, kanotix-scripts, w-scan
 Replaces: kanotix-vdr (<= 1.2.1-7.1)
 Conflicts: kanotix-vdr-client-data, kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
@@ -53,7 +53,7 @@ Description: channellists, scripts and data for kanotix-vdr-server
 
 Package: kanotix-vdr-client-data
 Architecture: all
-Depends: xdialog, rxvt, kanotix-su
+Depends: dialog, xdialog, rxvt, kanotix-su
 Conflicts: kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
 Description: vdr-start-menu and its scripts for kanotix-vdr-client
  Ask peter_weber69 for a longer description.

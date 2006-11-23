@@ -22,7 +22,9 @@ export TEXTDOMAIN=kanotix-vdr
 # Functions
 function dlg()
 {
-   DIALOG="Xdialog"
+   DIALOG="dialog"
+   [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
    # reset Variables
    ARG=; PARAMETERS=;
    if [ $# -eq 2 ]; then

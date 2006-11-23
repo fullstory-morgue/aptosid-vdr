@@ -14,13 +14,18 @@ FLL_DISTRO_MODE="installed"
 PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1","$2}' && \
       fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1","$2}' `
 
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
 for index in $PART; do
     z=`expr $z + 1`
     line=`echo $index | tr ',' ' '`
     PART_Xdialog="$PART_Xdialog $line"
 done
 
-VIDEO_PART=`Xdialog --menubox $"Choose partition" 30 45 24 $PART_Xdialog 2>&1`
+TMP="/tmp/videodir.tmp"
+$DIALOG --menu $"Choose partition" 30 45 24 $PART_Xdialog 2>"$TMP"
+VIDEO_PART="$(<$TMP)"
 
 if [ "$VIDEO_PART" = "" ]; then
 	echo $"Abort"
@@ -30,6 +35,7 @@ fi
 #/etc/init.d/vdr stop > /dev/null
 
 gemountet=`mount | grep /dev/$VIDEO_PART | wc -l`
+
 
 if [ "$gemountet" = "0" ]; then
 	mount "/dev/$VIDEO_PART" "/media/$VIDEO_PART"
@@ -43,13 +49,15 @@ fi
 
 VIDEO_DIR="/media/$VIDEO_PART/video.00"
 
+
 if [ ! -d  "$VIDEO_DIR" ]; then
 	echo $"Creating $VIDEO_DIR"
 	mkdir "$VIDEO_DIR"
 fi
 
+
 # Jetzt einfach das VIDEO Verzeichnis des VDR's ändern (wird in /etc/default/vdr gesetzt)
-VIDEO_ORG=`grep "VIDEO_DIR=" /etc/default/vdr | awk -F '"' '{print($2)}'`
+VIDEO_ORG=`grep "VIDEO_DIR=" /etc/default/vdr | cut -d'"' -f2 `
 
 if [ "$VIDEO_ORG" = "" ]; then
 	echo >> /etc/default/vdr && echo "VIDEO_DIR=\"$VIDEO_DIR\"" >> /etc/default/vdr
@@ -60,7 +68,15 @@ fi
 rm -f /var/lib/video && ln -s $VIDEO_DIR /var/lib/video
 chown -R vdr:vdr $VIDEO_DIR /var/lib/video
 
-Xdialog --infobox $"Please stop and restart VDR\n\nYour new video directory: $VIDEO_DIR" 10 60 40000
+if [ "$DIALOG" = "dialog" ]; then
+   vdr-start
+   TIMEOUT=""
+else
+   rxvt -C -e vdr-start
+   TIMEOUT=40000
+fi
+
+$DIALOG --infobox $"Your new video directory: $VIDEO_DIR" 10 60 $TIMEOUT
 
 #/etc/init.d/vdr start
 

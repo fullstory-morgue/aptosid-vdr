@@ -4,7 +4,8 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=kanotix-vdr
 
-DIALOG=Xdialog
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"
 [ $(echo $LANGUAGE|cut -c1-2) = de ] && VDRMANUAL="www.vdr-wiki.de/wiki/index.php/Benutzerhandbuch"
@@ -16,11 +17,11 @@ IP=`head -1 "$HOME/vdrip.conf" 2>/dev/null`
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 $DIALOG --clear --title $"VDR Menu" \
-        --menu $"Start VDR Programs\n\nMake your choice:" 35 65 2 \
+        --menu $"Start VDR Programs\n\nMake your choice:" 37 65 25 \
         ""  "~~~~~~~~ "$"xine"" ~~~~~~~~ " \
-        "1)"  $"xine-player (TV-Picture)" \
-        "2)"  $"Get xine Keyboardlayout for VDR" \
-        "3)"  $"Show xine Keyboardlayout" \
+        "1)"  $"sx(fb)fe-player (TV-Picture)" \
+        "2)"  $"xine-player (TV-Picture)" \
+        "3)"  $"Get xine Keyboardlayout for VDR" \
         "4)"  $"Change VDR IP-Adress for Xine-Player" \
         ""  "~~~~~~~~ "$"VDR"" ~~~~~~~~ " \
         "5)"  $"Start VDR" \
@@ -36,7 +37,8 @@ $DIALOG --clear --title $"VDR Menu" \
         "14)"  $"vdradmin (Webfrontend)" \
         "15)"  $"Kanotix-VDR config" \
         "16)"  $"VDR User Manual" \
-        "17)"  $"Exit" \
+        "17)"  $"Show xine Keyboardlayout" \
+        "18)"  $"Exit" \
 	2> $tempfile
 answer="$?"
 [ "$answer" = 1 ] && exit 1
@@ -45,9 +47,9 @@ rm -f "$tempfile"
 
 
 case $answer in
-    "1)") /usr/sbin/vdr-xine && exit;;
-    "2)") rxvt -C -e /usr/sbin/vdr-xine-keymap;;
-    "3)") rxvt -C -e /usr/sbin/vdr-xine-tasteninfo;;
+    "1)") /usr/sbin/vdr-xine sxfe && exit;;
+    "2)") /usr/sbin/vdr-xine xine && exit;;
+    "3)") rxvt -C -e /usr/sbin/vdr-xine-keymap;;
     "4)") /usr/sbin/vdr-ip;;
     "5)") kanotix-su rxvt -C -e /usr/sbin/vdr-start;;
     "6)") kanotix-su rxvt -C -e /usr/sbin/vdr-stop;;
@@ -61,7 +63,8 @@ case $answer in
     "14)") /usr/sbin/vdr-vdradmin;;
     "15)") /usr/sbin/vdr-config;;
     "16)") x-www-browser "http://${VDRMANUAL}" &;;
-    "17)") exit;;
+    "17)") rxvt -C -e /usr/sbin/vdr-xine-tasteninfo;;
+    "18)") exit;;
     *)  break;;
 esac
 

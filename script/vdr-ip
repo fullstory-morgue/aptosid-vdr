@@ -4,9 +4,17 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=kanotix-vdr
 
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
+TMP="/tmp/vdrip.tmp"
+
 #if [ -e $HOME/vdrip.conf ]; then
-   export IP=`head -1 $HOME/vdrip.conf`
-   export VDRIP=`Xdialog --inputbox $"VDR Server IP" 10 50 "$IP" 2>&1`
+   IP="localhost"
+   [ -e $HOME/vdrip.conf ] && IP=`head -1 $HOME/vdrip.conf`
+
+   $DIALOG --inputbox $"VDR Server IP" 10 50 "$IP" 2>"$TMP"
+   VDRIP="$(<$TMP)"
    if [ "$VDRIP" = "" ]; then
 	     exit 0;
    fi

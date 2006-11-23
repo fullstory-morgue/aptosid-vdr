@@ -27,6 +27,10 @@ msgid "xine"
 msgstr "xine"
 
 #: vdr-start-menu/vdr-start-menu:17 xine-client/vdr-start-menu:15
+msgid "sx(fb)fe-player (TV-Picture)"
+msgstr "sx(fb)fe-player (TV-Bild)"
+
+#: vdr-start-menu/vdr-start-menu:17 xine-client/vdr-start-menu:15
 msgid "xine-player (TV-Picture)"
 msgstr "xine-player (TV-Bild)"
 
@@ -122,10 +126,10 @@ msgstr "Kanalliste nicht gefunden"
 
 #: script/vdr-channelswitch:137
 msgid ""
-"Please start article  1) xine-Player in the VDR-Start-Menu\\nBackup of "
+"Please start one Player in the VDR-Start-Menu\\nBackup of "
 "Channellist: $BACKUPFILE"
 msgstr ""
-"Bitte starten Sie Punkt  1) xine-Player  im VDR-Start-Menü\n"
+"Bitte starten Sie Punkt einen Player  im VDR-Start-Menü\n"
 "Backup der Kanalliste: $BACKUPFILE"
 
 #: script/vdr-config:57
@@ -272,10 +276,8 @@ msgid "Creating $VIDEO_DIR"
 msgstr "Erstelle $VIDEO_DIR"
 
 #: script/vdr-videodir:65
-msgid "Please stop and restart VDR\\n\\nYour new video directory: $VIDEO_DIR"
+msgid "Your new video directory: $VIDEO_DIR"
 msgstr ""
-"Bitte VDR stoppen und neu starten\n"
-"\n"
 "Ihr neues Videoverzeichnis: $VIDEO_DIR"
 
 #: script/vdr-w_pvrscan:24

@@ -17,7 +17,10 @@ FLL_DISTRO_MODE="installed"
      export PFAD="/var/lib/vdr";
 #fi
 
-#TMP="/tmp/channelswitch.tmp"
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
+TMP="/tmp/channelswitch.tmp"
 
 K1="channels.conf.sat"
 K2="channels.conf.c.berlin-bosch-telecom"
@@ -49,8 +52,9 @@ K27="channels.conf.t.muenchen"
 K28="channels.conf.t.nuernberg"
 K29="channels.conf.kdof.pvr"
 
+
 #ls $PFAD channels*.conf | awk -F ' ' '{print $8}'
-export KANALNR=`Xdialog --menubox $"Choose Channellist" 40 52 24 \
+$DIALOG --menu $"Choose Channellist" 40 52 33 \
 "1)" "Sat (DVB-S)" \
 "2)" "DVB-C Berlin-Bosch-Telecom" \
 "3)" "DVB-C Berlin-Telecolumbus" \
@@ -80,9 +84,8 @@ export KANALNR=`Xdialog --menubox $"Choose Channellist" 40 52 24 \
 "27)" "DVB-T Süddeutschland: München" \
 "28)" "DVB-T Süddeutschland: Nürnberg" \
 "29)" "PVR (Analog) Kabel Deutschland Oberfranken" \
- 2>&1`
-# 2>"$TMP"
-#export KANALNR="$(<$TMP)"
+2>"$TMP"
+KANALNR="$(<$TMP)"
 
 NOW=`date +%y-%m-%d_%H:%M:%S`
 BACKUPFILE="/var/backups/channels.conf.$NOW"
@@ -121,10 +124,15 @@ case "$KANALNR" in
 *)     echo $"Channellist not found"; exit 0 ;;
 esac
 
-chown vdr:vdr "$PFAD/channels.*"
+chown vdr:vdr $PFAD/channels.*
 
-rxvt -C -e vdr-stop
-rxvt -C -e vdr-start
+if [ "$DIALOG" = "dialog" ]; then
+   vdr-start
+   TIMEOUT=""
+else
+   rxvt -C -e vdr-start
+   TIMEOUT=40000
+fi
 
-Xdialog --infobox $"Please start article  1) xine-Player in the VDR-Start-Menu\nBackup of Channellist: $BACKUPFILE" 10 60 40000
+$DIALOG --infobox $"Please start one Player in the VDR-Start-Menu\nBackup of Channellist: $BACKUPFILE" 10 60 $TIMEOUT
 
