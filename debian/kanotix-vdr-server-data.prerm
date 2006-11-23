@@ -1,0 +1,29 @@
+#! /bin/sh
+
+CONFFILES="setup.conf remote.KBD.conf"
+
+case "$1" in
+    purge)
+        for CONF in $CONFFILES
+        do
+            if [ -e "/var/lib/vdr/$CONF" ]; then
+                rm "/var/lib/vdr/$CONF"
+            fi
+        done
+        ;;
+    remove)
+        for CONF in $CONFFILES
+        do
+            if [ -e "/var/lib/vdr/$CONF" -a -f "/var/lib/vdr/kanotix-vdr/$CONF" ]; then
+                if diff -q "/var/lib/vdr/$CONF" "/var/lib/vdr/kanotix-vdr/$CONF"; then
+                    rm "/var/lib/vdr/$CONF"
+                else
+                    echo "=> not removing vdr config file $CONF"
+                fi
+            fi
+        done
+        ;;
+esac
+
+#DEBHELPER#
+

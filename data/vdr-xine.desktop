@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment=using libxine-xvdr
+Comment[de]=basierend auf libxine-xvdr
+Encoding=UTF-8
+Exec=xine -f -g --no-splash "xvdr:tcp://127.0.0.1#nocache;demux:mpeg_block"
+GenericName="xine frontend for vdr@localhost"
+GenericName[de]="xine frontend für vdr@localhost"
+Icon=/usr/share/pixmaps/vdr.png
+MimeType=
+Name=vdr-xine
+Name[de]=vdr-xine
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DCOP-ServiceType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+# override tool behaviour through distro-defaults
+FLL_DISTRO_MODE="installed"
+
+[ -r /etc/default/distro ] && source /etc/default/distro
+
+[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
+
+NOW=`date +%y-%m-%d_%H:%M:%S`
+
+echo $"Plugin $1"
+echo $"Please wait ..."
+
+/usr/sbin/vdr-stop
+BACKUPFILE="/var/backups/channels.conf.$NOW"
+mv /var/lib/vdr/channels.conf "$BACKUPFILE"
+touch /var/lib/vdr/channels.conf
+
+w_pvrscan --plugin "$1" > /var/lib/vdr/channels.conf
+chown vdr:vdr /var/lib/vdr/channels.conf
+
+echo $"/var/lib/vdr/channels.conf done, Backup of existing channels.conf see $BACKUPFILE"
+
+rxvt -C -e /usr/sbin/vdr-start
+echo $"Press any key" && read
+

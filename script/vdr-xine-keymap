@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+DOWNLOAD="http://mitglied.lycos.de/peterweber69/vdr-xine"
+#DIALOG=Xdialog
+DIALOG=dialog
+
+# override tool behaviour through distro-defaults
+FLL_DISTRO_MODE="installed"
+
+[ -r /etc/default/distro ] && source /etc/default/distro
+
+[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
+
+$DIALOG --title $"VDR-xine Keyboardlayout" --yesno \
+$"When running this script, you need an active internet connection!\n\nProceed" 0 0
+answer="$?"
+[ "$answer" = 1 ] && exit 1
+tput clear
+
+echo $"Getting xine settings for VDR  (~/.xine/config, ~/.xine/keymap) ..."
+
+cd "$HOME"
+wget "$DOWNLOAD/xine.conf.tgz"
+
+BACKUPFILE=".xine.backup-kanotix-vdr.sh.$NOW"
+cp -R .xine "$BACKUPFILE"
+rm -f .xine/config .xine/keymap
+tar xvfz xine.conf.tgz
+rm -f xine.conf.tgz
+
+echo
+echo
+echo " >>> "$"Your xine configuration was backed up in $BACKUPFILE gesichert!"" <<<"
+
+echo 
+echo $"Press any key" && read
+

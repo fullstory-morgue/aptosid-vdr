@@ -1,0 +1,67 @@
+Source: kanotix-vdr
+Section: misc
+Priority: optional
+Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
+Uploaders: Andreas Loibl <andreas@andreas-loibl.de>, Horst Tritremmel <peter_weber69@gmx.at>, Markus Schoelzel <makke@kanotixguide.org>
+Build-Depends: cdbs, debhelper (>= 5.0.0)
+Standards-Version: 3.7.2
+
+Package: kanotix-vdr
+Architecture: all
+Depends: kanotix-vdr-server, kanotix-vdr-client
+Description: metapackage to install kanotix-vdr-server and -client
+ This metapackage depends on kanotix-vdr-server and kanotix-vdr-client.
+ It may be safely removed from your system.
+
+Package: kanotix-vdr-server
+Architecture: all
+Depends: kanotix-vdr-server-data, vdr, vdr-plugin-xineliboutput, vdr-plugin-channelscan | vdr-plugin-reelchannelscan, vdr-plugin-femon, vdr-plugin-osdteletext, vdr-plugin-tvonscreen, vdr-plugin-nordlichtsepg, vdr-plugin-epgsearch, vdr-plugin-text2skin, vdradmin-am
+Suggests: kanotix-vdr-server-extra
+Conflicts: kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
+Description: metapackage to install the kanotix-vdr-menu and xine
+ This metapackage installs kanotix-vdr-data (or kanotix-vdr-client-data) and 
+ libxine-xvdr.
+ It may be safely removed from your system.
+
+Package: kanotix-vdr-server-extra
+Architecture: all
+Depends: kanotix-vdr-server, vdr-plugin-streamdev-server, vdr-addon-noad, vdr-plugin-newsticker, vdr-plugin-autotimeredit, vdr-plugin-premiereepg, vdr-plugin-pvrinput, vdr-plugin-radio, vdr-plugin-reelchannelscan, vdr-skins, vdr-plugin-undelete
+Conflicts: kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
+Description: metapackage to install the kanotix-vdr-menu and xine
+ This metapackage installs useful optional plugins for kanotix-vdr-server.
+ It may be safely removed from your system.
+
+Package: kanotix-vdr-client
+Architecture: all
+Depends: kanotix-vdr-client-data|kanotix-vdr-data, libxine-xvdr, libxine1, xine-ui
+Replaces: kanotix-vdr-xine
+Conflicts: kanotix-vdr-xine, kanotix-vdr (<= 1.2.1-7.1)
+Description: metapackage to install the kanotix-vdr-menu and xine
+ This metapackage installs kanotix-vdr-data (or kanotix-vdr-client-data) and 
+ libxine-xvdr.
+ It may be safely removed from your system.
+
+Package: kanotix-vdr-server-data
+Architecture: all
+Depends: vdr, xdialog, rxvt, kanotix-su, w-pvrscan
+Recommends: distro-defaults, kanotix-scripts, w-scan
+Replaces: kanotix-vdr (<= 1.2.1-7.1)
+Conflicts: kanotix-vdr-client-data, kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
+Provides: kanotix-vdr-data
+Description: channellists, scripts and data for kanotix-vdr-server
+ Ask peter_weber69 for a longer description.
+
+Package: kanotix-vdr-client-data
+Architecture: all
+Depends: xdialog, rxvt, kanotix-su
+Conflicts: kanotix-vdr (<= 1.2.1-7.1), kanotix-vdr-xine (<= 1.2.1-7.1)
+Description: vdr-start-menu and its scripts for kanotix-vdr-client
+ Ask peter_weber69 for a longer description.
+
+Package: kanotix-vdr-xine
+Architecture: all
+Depends: kanotix-vdr-client
+Description: metapackage to install kanotix-vdr-client
+ This is a metapackage provided for compatibility reasons
+ and it should only install kanotix-vdr-client, which replaces
+ kanotix-vdr-xine.

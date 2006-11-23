@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+echo
+echo
+echo $"VDR Keyboardlayout in the  Xine-Player Window"
+echo
+echo $" Action               Key"
+echo  "==============================="
+echo $" Menu                 m"
+echo $" Cursorkeys           <>^v"
+echo $" Return               Return"
+echo $" Back                 Backspace"
+echo $" 0-9                  0-9"
+echo $" RED                  F1"
+echo $" GREEN                F2"
+echo $" YELLOW               F3"
+echo $" BLUE                 F4"
+echo $" Volume+              F12"
+echo $" Volume-              F11"
+echo $" Mute                 F10"
+echo $" Power off            p"
+echo $" Quit                 q"
+echo $" Fullscreen           f"
+echo
+echo
+echo $"Press any key" && read
+

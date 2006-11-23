@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+#if [ -e $HOME/vdrip.conf ]; then
+   export IP=`head -1 $HOME/vdrip.conf`
+   export VDRIP=`Xdialog --inputbox $"VDR Server IP" 10 50 "$IP" 2>&1`
+   if [ "$VDRIP" = "" ]; then
+	     exit 0;
+   fi
+   echo "$VDRIP" > "$HOME/vdrip.conf"
+#fi

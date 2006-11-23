@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses cdbs.  Originaly written by Robert Millan.
+# This file is public domain.
+  
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+common-install-arch common-install-indep:: common-install-impl
+common-install-impl::
+	# Gettext Internationalisation (i18n)
+	DESTDIR=$(CURDIR)/debian/kanotix-vdr-server-data po/make_po.sh kanotix-vdr.mo
+	DESTDIR=$(CURDIR)/debian/kanotix-vdr-client-data po/make_po.sh kanotix-vdr.mo
+

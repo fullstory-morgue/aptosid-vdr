@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+# override tool behaviour through distro-defaults
+FLL_DISTRO_MODE="installed"
+
+[ -r /etc/default/distro ] && source /etc/default/distro
+
+[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
+
+PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1","$2}' && \
+      fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1","$2}' `
+
+for index in $PART; do
+    z=`expr $z + 1`
+    line=`echo $index | tr ',' ' '`
+    PART_Xdialog="$PART_Xdialog $line"
+done
+
+VIDEO_PART=`Xdialog --menubox $"Choose partition" 30 45 24 $PART_Xdialog 2>&1`
+
+if [ "$VIDEO_PART" = "" ]; then
+	echo $"Abort"
+	exit
+fi
+
+#/etc/init.d/vdr stop > /dev/null
+
+gemountet=`mount | grep /dev/$VIDEO_PART | wc -l`
+
+if [ "$gemountet" = "0" ]; then
+	mount "/dev/$VIDEO_PART" "/media/$VIDEO_PART"
+fi
+
+if [ ! -d  "/media/$VIDEO_PART" ]; then
+	echo $"Creating /media/$VIDEO_PART"
+	mkdir "/media/$VIDEO_PART"
+	chmod 755 "/media/$VIDEO_PART"
+fi
+
+VIDEO_DIR="/media/$VIDEO_PART/video.00"
+
+if [ ! -d  "$VIDEO_DIR" ]; then
+	echo $"Creating $VIDEO_DIR"
+	mkdir "$VIDEO_DIR"
+fi
+
+# Jetzt einfach das VIDEO Verzeichnis des VDR's ändern (wird in /etc/default/vdr gesetzt)
+VIDEO_ORG=`grep "VIDEO_DIR=" /etc/default/vdr | awk -F '"' '{print($2)}'`
+
+if [ "$VIDEO_ORG" = "" ]; then
+	echo >> /etc/default/vdr && echo "VIDEO_DIR=\"$VIDEO_DIR\"" >> /etc/default/vdr
+else
+	perl -pi -e "s@$VIDEO_ORG@$VIDEO_DIR@g" /etc/default/vdr
+fi
+
+rm -f /var/lib/video && ln -s $VIDEO_DIR /var/lib/video
+chown -R vdr:vdr $VIDEO_DIR /var/lib/video
+
+Xdialog --infobox $"Please stop and restart VDR\n\nYour new video directory: $VIDEO_DIR" 10 60 40000
+
+#/etc/init.d/vdr start
+

@@ -1,0 +1,18 @@
+#! /bin/sh
+
+# Create conffiles for vdr that do not exist yet
+CONFFILES="setup.conf remote.KBD.conf"
+
+case "$1" in
+    configure)
+        for CONF in $CONFFILES
+        do
+            if [ ! -e "/var/lib/vdr/$CONF" -a -f "/var/lib/vdr/kanotix-vdr/$CONF" ]; then
+                cp -f "/var/lib/vdr/kanotix-vdr/$CONF" "/var/lib/vdr/$CONF"
+            fi
+        done
+        ;;
+esac
+
+#DEBHELPER#
+

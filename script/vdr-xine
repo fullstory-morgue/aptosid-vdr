@@ -1,0 +1,45 @@
+#!/bin/sh
+
+USERCONFIG="$HOME/.kanotix-vdr.conf"
+
+# Localisation
+TEXTDOMAINDIR="/usr/share/locale"
+TEXTDOMAIN=kanotix-vdr
+
+if [ ! -e $HOME/vdrip.conf ]; then
+   VDRIP=`Xdialog --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
+   if [ "$VDRIP" = "" ]; then
+	exit;
+   fi
+   echo $VDRIP > $HOME/vdrip.conf
+ else
+   VDRIP=`head -1 $HOME/vdrip.conf`
+fi
+
+# is vdr running
+vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
+[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && sleep 5  # wait for xine-autostart if kdestart is to fast
+vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
+[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && kanotix-su rxvt -C -e vdr-start
+
+runxine="0" && runxine=`ps -A|grep -c xine`
+[ ! "$runxine" = "0" ] && /usr/sbin/vdr-xine-close 2>/dev/null
+sleep 1
+
+XineFullscreen=""
+[ -f "$USERCONFIG" ] && [ "$(grep ^XineFullscreen $USERCONFIG | cut -d= -f2)" -eq 1 ] && XineFullscreen="-f"
+
+NetworkTransportMode="tcp"
+[ -f "$USERCONFIG" ] && [ "$(grep ^NetworkTransportMode $USERCONFIG | cut -d= -f2)" -eq 1 ] && NetworkTransportMode="udp"
+
+MRL="xvdr:${NetworkTransportMode}://$VDRIP#nocache;demux:mpeg_block"
+[ -f "$USERCONFIG" ] && [ "$(grep ^XinePlugin $USERCONFIG | cut -d= -f2)" -eq 1 ] && MRL="vdr-socket:/"$VDRIP"#demux:mpeg_pes"
+
+[ -n "$DISPLAY" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL" &
+if [ -z "$DISPLAY" ]; then
+   fuser -k /dev/dsp &>/dev/null
+   clear
+   fbxine "$MRL" &>/dev/null
+   reset
+fi
+

@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Localisation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=kanotix-vdr
+
+DOWNLOAD="http://mitglied.lycos.de/peterweber69/vdr-xine"
+WHAT="libxine1 xine-ui"
+
+#DIALOG=Xdialog
+DIALOG=dialog
+
+# override tool behaviour through distro-defaults
+FLL_DISTRO_MODE="installed"
+
+[ -r /etc/default/distro ] && source /etc/default/distro
+
+[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
+
+$DIALOG --title $"Installscript" --yesno \
+$"When running this script, you need an active internet connection!\n\nProceed" 0 0
+answer="$?"
+[ "$answer" = 1 ] && exit 1
+tput clear
+
+echo $"VDR Update Start"
+
+cd "$HOME"
+rm -f vdr-update.sh
+wget "$DOWNLOAD/vdr-update.sh"
+chmod 755 vdr-update.sh
+chown root:root vdr-update.sh
+sh vdr-update.sh $WHAT
+
+echo
+echo
+echo " >>> "$"Update done"" <<<"
+
+echo 
+echo $"Press any key" && read
+
