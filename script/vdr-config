@@ -5,19 +5,19 @@
 # Settings for the Kanotix-VDR-Scripts and for the Kanotix-VDR-Startmenu are stored in it.
 # List of the variables that are available:
 #     LanguageMode:       0 = Autoselect Language, 1 = Select Language manually (via VDR-OSD)
-CONFIGFILE="/var/lib/vdr/kanotix-vdr/kanotix-vdr.conf"
+CONFIGFILE="/var/lib/vdr/sidux-vdr/sidux-vdr.conf"
 
 # user configuration file
 # This file doesn't exist by default, but it will be created by this script if it is needed.
 # Settings for the Xine-Client or for the Kanotix-VDR-Startmenu are stored in it.
 # List of the variables that are available:
 #     XineFullscreen:       0 = Normal Mode, 1 = Fullscreen
-USERCONFIG="$HOME/.kanotix-vdr.conf"
+USERCONFIG="$HOME/.sidux-vdr.conf"
 
 #########################################################################################
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # Functions
 function dlg()
@@ -53,7 +53,7 @@ function run_as_root()
 	while shift; do
 		(($#)) && PARAMETERS="$PARAMETERS \"$1\""
 	done
-	output="$(eval "kanotix-su \"$0\" $PARAMETERS")"
+	output="$(eval "su-me \"$0\" $PARAMETERS")"
 	rc=$?
 	echo "$output"
 	return $rc

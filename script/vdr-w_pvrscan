@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
@@ -33,7 +33,7 @@ if [ "$DIALOG" = "dialog" ]; then
 	vdr-start
 	TIMEOUT=""
 else
-	rxvt -C -e vdr-start
+	x-terminal-emulator -e vdr-start
 	TIMEOUT=40000
 fi
 

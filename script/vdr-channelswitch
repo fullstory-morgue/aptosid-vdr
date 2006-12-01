@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
@@ -11,16 +11,13 @@ FLL_DISTRO_MODE="installed"
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
-#if [ -d /ramdisk ]; then # LiveCD Mode
-#     export PFAD="/home/knoppix/vdr";
-#  else  # after kanotix-installer
-     export PFAD="/var/lib/vdr";
-#fi
+export PFAD="/var/lib/vdr";
+
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-TMP="/tmp/channelswitch.tmp"
+TMP="$(mktemp -p /tmp/ channelswitch-XXXXXXXXXX)"
 
 K1="channels.conf.sat"
 K2="channels.conf.c.berlin-bosch-telecom"
@@ -130,7 +127,7 @@ if [ "$DIALOG" = "dialog" ]; then
 	vdr-start
 	TIMEOUT=""
 else
-	rxvt -C -e vdr-start
+	x-terminal-emulator -e vdr-start
 	TIMEOUT=40000
 fi
 

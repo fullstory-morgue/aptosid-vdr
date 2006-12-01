@@ -2,9 +2,9 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
-DOWNLOAD="http://mitglied.lycos.de/peterweber69/vdr-xine"
+DOWNLOAD="http://sidux.com/files/misc/"
 WHAT="libxine1 xine-ui"
 
 DIALOG="dialog"

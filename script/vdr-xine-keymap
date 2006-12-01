@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 DOWNLOAD="http://mitglied.lycos.de/peterweber69/vdr-xine"
 #DIALOG=Xdialog
@@ -26,7 +26,7 @@ echo $"Getting xine settings for VDR  (~/.xine/config, ~/.xine/keymap) ..."
 cd "$HOME"
 wget "$DOWNLOAD/xine.conf.tgz"
 
-BACKUPFILE=".xine.backup-kanotix-vdr.sh.$NOW"
+BACKUPFILE=".xine.backup-sidux-vdr.sh.$NOW"
 cp -R .xine "$BACKUPFILE"
 rm -f .xine/config .xine/keymap
 tar xvfz xine.conf.tgz

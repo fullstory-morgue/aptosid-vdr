@@ -2,12 +2,12 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-TMP="/tmp/vdrip.tmp"
+TMP="$(mktemp -p /tmp/ vdrip-XXXXXXXXXX)"
 
 IP="localhost"
 [ -e $HOME/vdrip.conf ] && IP=`head -1 $HOME/vdrip.conf`

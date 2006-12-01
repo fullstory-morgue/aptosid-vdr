@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
@@ -37,14 +37,14 @@ rm -f "$tempfile"
 case $answer in
     "1)") /usr/sbin/vdr-xine sxfe && exit;;
     "2)") /usr/sbin/vdr-xine xine && exit;;
-    "3)") rxvt -C -e /usr/sbin/vdr-xine-keymap;;
+    "3)") x-terminal-emulator -e /usr/sbin/vdr-xine-keymap;;
     "4)") /usr/sbin/vdr-ip;;
-    "5)") kanotix-su rxvt -C -e /usr/sbin/vdr-update;;
-    "6)") rxvt -C -e /usr/sbin/vdr-xine-autorun;;
+    "5)") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
+    "6)") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
     "7)") /usr/sbin/vdr-vdradmin;;
     "8)") /usr/sbin/vdr-config;;
     "9)") x-www-browser "http://${VDRMANUAL}" &;;
-    "10)") rxvt -C -e /usr/sbin/vdr-xine-tasteninfo;;
+    "10)") x-terminal-emulator -C -e /usr/sbin/vdr-xine-tasteninfo;;
     "11)") exit;;
     *)  break;;
 esac

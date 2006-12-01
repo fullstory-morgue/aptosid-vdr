@@ -1,10 +1,10 @@
 #!/bin/sh
 
-USERCONFIG="$HOME/.kanotix-vdr.conf"
+USERCONFIG="$HOME/.sidux-vdr.conf"
 
 # Localisation
 TEXTDOMAINDIR="/usr/share/locale"
-TEXTDOMAIN=kanotix-vdr
+TEXTDOMAIN=sidux-vdr
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
@@ -23,7 +23,7 @@ fi
 vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
 [ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && sleep 5  # wait for xine-autostart if kdestart is to fast
 vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
-[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && kanotix-su rxvt -C -e vdr-start
+[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && su-me x-terminal-emulator -e vdr-start
 
 runxine="0" && runxine=`ps -A|grep -c xine`
 [ ! "$runxine" = "0" ] && /usr/sbin/vdr-xine-close 2>/dev/null

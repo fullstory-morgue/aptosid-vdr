@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
@@ -23,7 +23,7 @@ for index in $PART; do
 	PART_Xdialog="$PART_Xdialog $line"
 done
 
-TMP="/tmp/videodir.tmp"
+TMP="$(mktemp -p /tmp/ videodir-XXXXXXXXXX)"
 $DIALOG --menu $"Choose partition" 30 45 24 $PART_Xdialog 2>"$TMP"
 VIDEO_PART="$(<$TMP)"
 
@@ -72,7 +72,7 @@ if [ "$DIALOG" = "dialog" ]; then
 	vdr-start
 	TIMEOUT=""
 else
-	rxvt -C -e vdr-start
+	x-terminal-emulator -e vdr-start
 	TIMEOUT=40000
 fi
 

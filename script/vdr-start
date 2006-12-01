@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # global configuration file - see vdr-config for more info
-CONFIGFILE="/var/lib/vdr/kanotix-vdr/kanotix-vdr.conf"
+CONFIGFILE="/var/lib/vdr/sidux-vdr/sidux-vdr.conf"
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"

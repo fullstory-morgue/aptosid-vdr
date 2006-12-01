@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
@@ -49,21 +49,21 @@ rm -f "$tempfile"
 case $answer in
 	"1)") /usr/sbin/vdr-xine sxfe && exit;;
 	"2)") /usr/sbin/vdr-xine xine && exit;;
-	"3)") rxvt -C -e /usr/sbin/vdr-xine-keymap;;
+	"3)") x-terminal-emulator -e /usr/sbin/vdr-xine-keymap;;
 	"4)") /usr/sbin/vdr-ip;;
-	"5)") kanotix-su rxvt -C -e /usr/sbin/vdr-start;;
-	"6)") kanotix-su rxvt -C -e /usr/sbin/vdr-stop;;
-	"7)") kanotix-su /usr/sbin/vdr-channelswitch;;
-	"8)") kanotix-su kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf;;
-	"9)") kanotix-su rxvt -C -e /usr/sbin/vdr-w_pvrscan pvrinput;;
-	"10)") kanotix-su rxvt -C -e /usr/sbin/vdr-videodir;;
-	"11)") kanotix-su rxvt -C -e /usr/sbin/vdr-update;;
-	"12)") kanotix-su rxvt -C -e /usr/sbin/vdr-autorun;;
-	"13)") rxvt -C -e /usr/sbin/vdr-xine-autorun;;
+	"5)") su-me x-terminal-emulator -e /usr/sbin/vdr-start;;
+	"6)") su-me x-terminal-emulator -e /usr/sbin/vdr-stop;;
+	"7)") su-me /usr/sbin/vdr-channelswitch;;
+	"8)") su-me kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf;;
+	"9)") su-me x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput;;
+	"10)") su-me x-terminal-emulator -e /usr/sbin/vdr-videodir;;
+	"11)") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
+	"12)") su-me x-terminal-emulator -e /usr/sbin/vdr-autorun;;
+	"13)") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
 	"14)") /usr/sbin/vdr-vdradmin;;
 	"15)") /usr/sbin/vdr-config;;
 	"16)") x-www-browser "http://${VDRMANUAL}" &;;
-	"17)") rxvt -C -e /usr/sbin/vdr-xine-tasteninfo;;
+	"17)") x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo;;
 	"18)") exit;;
 	*)  break;;
 esac

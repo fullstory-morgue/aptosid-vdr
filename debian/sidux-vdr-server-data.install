@@ -27,11 +27,11 @@ channels/channels.conf.t.luebeck    var/lib/vdr/
 channels/channels.conf.t.mainz    var/lib/vdr/
 channels/channels.conf.t.muenchen    var/lib/vdr/
 channels/channels.conf.t.nuernberg    var/lib/vdr/
-conf/setup.conf    var/lib/vdr/kanotix-vdr/
-conf/remote.conf    var/lib/vdr/kanotix-vdr/
-conf/remote.KBD.conf    var/lib/vdr/kanotix-vdr/
-conf/remote.XKeySym.conf    var/lib/vdr/kanotix-vdr/
-conf/kanotix-vdr.conf	var/lib/vdr/kanotix-vdr/
+conf/setup.conf    var/lib/vdr/sidux-vdr/
+conf/remote.conf    var/lib/vdr/sidux-vdr/
+conf/remote.KBD.conf    var/lib/vdr/sidux-vdr/
+conf/remote.XKeySym.conf    var/lib/vdr/sidux-vdr/
+conf/sidux-vdr.conf	var/lib/vdr/sidux-vdr/
 data/vdr.png    usr/share/pixmaps/
 data/*.desktop   usr/share/applnk/Multimedia/
 data/*.desktop      etc/skel/Desktop/

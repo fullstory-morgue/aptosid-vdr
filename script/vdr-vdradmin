@@ -23,7 +23,7 @@ USERCONFIG="$HOME/vdradmin.conf"
 #########################################################################################
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=kanotix-vdr
+export TEXTDOMAIN=sidux-vdr
 
 # Functions
 function start_vdradmind_if_needed()
@@ -39,7 +39,7 @@ function start_vdradmind_if_needed()
 	
 	$DIALOG --yesno $"The VDRAdmin-Daemon is not running on your computer...\nDo you want to start it now?" 0 0 || return    # user doesn't want to start vdradmind
 	
-	kanotix-su /etc/init.d/vdradmin-am start
+	su-me /etc/init.d/vdradmin-am start
 }
 
 DIALOG="dialog"
