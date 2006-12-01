@@ -1,7 +1,6 @@
 sidux-vdr (1.2.5) unstable; urgency=low
 
   [ Horst Tritremmel ]
-  * NOT RELEASED YET
   * add vdr-sxfe and vdr-fbfe (Framebuffer) TV-Picture tool,
     correct OSD Scaling with this tools
   * setup.conf changed, for transparent OSD with channels
@@ -14,8 +13,10 @@ sidux-vdr (1.2.5) unstable; urgency=low
   * re- indent.
   * fix bashisms in maintainer scripts.
   * fix unsafe tempfile handling.
+  * fix dependencies/ conflicts.
+  * remove stale uploaders for the time being.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat,  2 Dec 2006 00:18:35 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat,  2 Dec 2006 00:23:25 +0100
 
 kanotix-vdr (1.2.4) unstable; urgency=low
 
