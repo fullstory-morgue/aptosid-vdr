@@ -35,7 +35,7 @@ Description: metapackage to install the sidux-vdr-menu and xine
 Package: sidux-vdr-client
 Architecture: all
 Depends: sidux-vdr-client-data | sidux-vdr-data, libxine-xvdr, libxine1, xine-ui | libxineliboutput-sxfe | xineliboutput-sxfe | libxineliboutput-fbfe | xineliboutput-fbfe | kaffeine
-Conflicts: sidux-vdr-xine, kanotix-vdr, kanotix-vdr-client
+Conflicts: kanotix-vdr-xine, kanotix-vdr, kanotix-vdr-client
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
  libxine-xvdr.
@@ -45,6 +45,7 @@ Package: sidux-vdr-server-data
 Architecture: all
 Depends: vdr, dialog, xdialog, x-terminal-emulator | xterm, su-me, w-pvrscan
 Recommends: distro-defaults, sidux-scripts, w-scan
+Provides: sidux-vdr-data
 Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server-data, kanotix-vdr-client-data, sidux-vdr-client-data
 Description: channellists, scripts and data for sidux-vdr-server
  Ask Horst Tritremmel for a longer description.
@@ -52,7 +53,7 @@ Description: channellists, scripts and data for sidux-vdr-server
 Package: sidux-vdr-client-data
 Architecture: all
 Depends: dialog, xdialog, x-terminal-emulator | xterm, su-me
-Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-client-data
+Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-client-data, sidux-vdr-server-data
 Description: vdr-start-menu and its scripts for sidux-vdr-client
  Ask Horst Tritremmel for a longer description.
 
