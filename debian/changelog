@@ -1,3 +1,10 @@
+sidux-vdr (1.2.8) unstable; urgency=low
+
+  * fix broken dependencies.
+  * re- indent debian/*.install.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  5 Dec 2006 23:08:39 +0100
+
 sidux-vdr (1.2.7) unstable; urgency=low
 
   * copy missing conffiles.
