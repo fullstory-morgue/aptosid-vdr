@@ -1,8 +1,8 @@
-sidux-vdr (1.2.7) UNRELEASED; urgency=low
+sidux-vdr (1.2.7) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * copy missing conffiles.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  5 Dec 2006 14:18:27 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  5 Dec 2006 22:54:17 +0100
 
 sidux-vdr (1.2.6) unstable; urgency=low
 

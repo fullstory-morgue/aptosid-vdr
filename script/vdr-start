@@ -14,6 +14,20 @@ FLL_DISTRO_MODE="installed"
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
+# stopping vdr for setup.conf handling
+/etc/init.d/vdr stop
+
+# Create conffiles for vdr that do not exist yet
+CONFFILES="setup.conf remote.conf"
+for CONF in $CONFFILES
+  do
+      if [ ! -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/sidux-vdr/$CONF" ]; then
+          echo "copy /var/lib/vdr/sidux-vdr/$CONF"
+          cp -f "/var/lib/vdr/sidux-vdr/$CONF" "/var/lib/vdr/$CONF"
+          chown vdr:vdr "/var/lib/vdr/$CONF"
+     fi
+  done
+
 if [ "$(grep ^LanguageMode $CONFIGFILE | cut -d= -f2)" -ne 1 ]; then
 	# Set VDR-language automatically
 	lang=$(grep ^OSDLanguage /var/lib/vdr/setup.conf | cut -d= -f2)
@@ -31,7 +45,33 @@ if [ "$(grep ^LanguageMode $CONFIGFILE | cut -d= -f2)" -ne 1 ]; then
 	fi
 fi
 
-/etc/init.d/vdr restart
+# add xineliboutput. in setup.conf, needed for xineliboutput plugin
+xlop=$(grep "xineliboutput" "/var/lib/vdr/setup.conf")
+if [ "$xlop" = ""  ] ; then 
+     echo "add xineliboutput preferences to /var/lib/vdr/setup.conf"
+     grep "xineliboutput" "/var/lib/vdr/sidux-vdr/setup.conf" >> "/var/lib/vdr/setup.conf"
+     #sed -ie '/./!d' /var/lib/vdr/setup.conf
+fi
+
+# add xineliboutput. in setup.conf, needed for radio plugin
+radio=$(grep "radio.Activate" "/var/lib/vdr/setup.conf")
+if [ "$radio" = ""  ] ; then 
+     echo "add radio.Activate preferences to /var/lib/vdr/setup.conf"
+     echo "radio.Activate = 1" >> "/var/lib/vdr/setup.conf"
+     #sed -ie '/./!d' /var/lib/vdr/setup.conf
+fi
+
+# add XkeySym. in remote.conf needed for vdr-sxfe
+xkeysym=$(grep "XKeySym" "/var/lib/vdr/remote.conf")
+if [ "$xkeysym" = ""  ] ; then 
+     echo "add XKeySym Keys to /var/lib/vdr/remote.conf"
+     cat "/var/lib/vdr/sidux-vdr/remote.XKeySym.conf" >> "/var/lib/vdr/remote.conf"
+     sed -ie '/./!d' /var/lib/vdr/remote.conf
+fi
+
+
+# start vdr
+/etc/init.d/vdr start
 /etc/init.d/vdradmin-am restart
 echo $"Please wait ..."
 sleep 10
