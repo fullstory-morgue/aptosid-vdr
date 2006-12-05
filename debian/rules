@@ -8,5 +8,5 @@ common-install-arch common-install-indep:: common-install-impl
 common-install-impl::
 	# Gettext Internationalisation (i18n)
 	DESTDIR=$(CURDIR)/debian/sidux-vdr-server-data po/make_po.sh sidux-vdr.mo
-	DESTDIR=$(CURDIR)/debian/sidux-vdr-client-data po/make_po.sh sidux-vdr.mo
+	#DESTDIR=$(CURDIR)/debian/sidux-vdr-client-data po/make_po.sh sidux-vdr.mo
 
