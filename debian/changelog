@@ -1,3 +1,9 @@
+sidux-vdr (1.2.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 30 Dec 2006 17:38:59 +0100
+
 sidux-vdr (1.2.10) unstable; urgency=low
 
   * add procps to dependencies.
