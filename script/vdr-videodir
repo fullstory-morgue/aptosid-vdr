@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ssft.sh || exit 1
+
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
@@ -11,28 +13,25 @@ FLL_DISTRO_MODE="installed"
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
-PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1","$2}' && \
-      fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1","$2}' `
+PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1"_"$2}' && \
+      fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1"_"$2}' `
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
+SSFT_FRONTEND="dialog"
+[ -n "$DISPLAY" ] && SSFT_FRONTEND="zenity"
 
 for index in $PART; do
 	z=`expr $z + 1`
 	line=`echo $index | tr ',' ' '`
-	PART_Xdialog="$PART_Xdialog $line"
+	partlist="$partlist $line"
 done
 
-TMP="$(mktemp -p /tmp/ videodir-XXXXXXXXXX)"
-$DIALOG --menu $"Choose partition" 30 45 24 $PART_Xdialog 2>"$TMP"
-VIDEO_PART="$(<$TMP)"
 
-if [ "$VIDEO_PART" = "" ]; then
-	echo $"Abort"
-	exit
+if ssft_select_single "Videodir" $"Choose partition" $partlist; then
+  VIDEO_PART=$(echo "$SSFT_RESULT" | cut -d_ -f1)
+else
+  exit 0
 fi
-
-#/etc/init.d/vdr stop > /dev/null
 
 gemountet=`mount | grep /dev/$VIDEO_PART | wc -l`
 
@@ -70,10 +69,8 @@ chown -R vdr:vdr $VIDEO_DIR /var/lib/video
 
 if [ "$DIALOG" = "dialog" ]; then
 	vdr-start
-	TIMEOUT=""
 else
 	x-terminal-emulator -e vdr-start
-	TIMEOUT=40000
 fi
 
-$DIALOG --infobox $"Your new video directory: $VIDEO_DIR" 10 60 $TIMEOUT
+ssft_display_message "Info" $"Your new video directory: $VIDEO_DIR"

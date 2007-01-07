@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ssft.sh || exit 1
+
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
@@ -11,124 +13,35 @@ FLL_DISTRO_MODE="installed"
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
-export PFAD="/var/lib/vdr";
+PFAD="/var/lib/vdr";
 
+SSFT_FRONTEND="dialog"
+[ -n "$DISPLAY" ] && SSFT_FRONTEND="zenity"
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
-
-TMP="$(mktemp -p /tmp/ channelswitch-XXXXXXXXXX)"
-
-K1="channels.conf.sat"
-K2="channels.conf.c.berlin-bosch-telecom"
-K3="channels.conf.c.berlin-telecolumbus"
-K4="channels.conf.c.braunschweig.kabelcom"
-K5="channels.conf.c.dorfen.bayern.KMS"
-K6="channels.conf.c.frankurt.main.IESY"
-K7="channels.conf.c.hamburg"
-K8="channels.conf.c.kabel-IBW-ausbaugebiet"
-K9="channels.conf.c.luebeck.KD"
-K10="channels.conf.c.oesterreich.linz.liwest"
-K11="channels.conf.c.oldenburg.AWE"
-K12="channels.conf.c.regensburg.KD"
-K13="channels.conf.c.wien.UPC"
-K14="channels.conf.t.berlin"
-K15="channels.conf.t.braunschweig"
-K16="channels.conf.t.bremen"
-K17="channels.conf.t.hamburg"
-K18="channels.conf.t.luebeck"
-K19="channels.conf.t.hannover"
-K20="channels.conf.t.kiel"
-K21="channels.conf.t.koeln"
-K22="channels.conf.t.duesseldorf"
-K23="channels.conf.t.dortmund"
-K24="channels.conf.t.frankfurt"
-K25="channels.conf.t.mainz"
-K26="channels.conf.t.leipzig"
-K27="channels.conf.t.muenchen"
-K28="channels.conf.t.nuernberg"
-K29="channels.conf.kdof.pvr"
-
-
-#ls $PFAD channels*.conf | awk -F ' ' '{print $8}'
-$DIALOG --menu $"Choose Channellist" 40 52 33 \
-	"1)" "Sat (DVB-S)" \
-	"2)" "DVB-C Berlin-Bosch-Telecom" \
-	"3)" "DVB-C Berlin-Telecolumbus" \
-	"4)" "DVB-C Braunschweig.Kabelcom" \
-	"5)" "DVB-C Dorfen.Bayern.KMS" \
-	"6)" "DVB-C Frankurt.Main.IESY" \
-	"7)" "DVB-C Hamburg" \
-	"8)" "DVB-C Kabel-IBW-Ausbaugebiet" \
-	"9)" "DVB-C Lübeck.KD" \
-	"10)" "DVB-C Österreich.Linz.Liwest" \
-	"11)" "DVB-C Oldenburg.AWE" \
-	"12)" "DVB-C Regensburg.KD" \
-	"13)" "DVB-C Wien.UPC" \
-	"14)" "DVB-T Berlin-Brandenburg" \
-	"15)" "DVB-T Norddeutschland: Braunschweig" \
-	"16)" "DVB-T Bremen/Bremerhaven/Oldenburg" \
-	"17)" "DVB-T Norddeutschland: Hamburg" \
-	"18)" "DVB-T Norddeutschland: Lübeck" \
-	"19)" "DVB-T Norddeutschland: Hannover" \
-	"20)" "DVB-T Norddeutschland: Kiel" \
-	"21)" "DVB-T NRW: Köln/Bonn" \
-	"22)" "DVB-T NRW: Ruhrgebiet/Düsseldorf" \
-	"23)" "DVB-T NRW: Ruhrgebiet/Dortmund" \
-	"24)" "DVB-T Rhein-Main-Gebiet: Frankfurt a.M." \
-	"25)" "DVB-T Rhein-Main-Gebiet: Mainz" \
-	"26)" "DVB-T Mitteldeutschland: Leipzig" \
-	"27)" "DVB-T Süddeutschland: München" \
-	"28)" "DVB-T Süddeutschland: Nürnberg" \
-	"29)" "PVR (Analog) Kabel Deutschland Oberfranken" \
-		2>"$TMP"
-KANALNR="$(<$TMP)"
-
+# Backup the channels.conf
 NOW=`date +%y-%m-%d_%H:%M:%S`
 BACKUPFILE="/var/backups/channels.conf.$NOW"
 cp -f "$PFAD/channels.conf" "$BACKUPFILE"
-#echo $KANALNR
-case "$KANALNR" in
-	"1)")   cp -f "$PFAD/$K1" "$PFAD/channels.conf" ;;
-	"2)")   cp -f "$PFAD/$K2" "$PFAD/channels.conf" ;;
-	"3)")   cp -f "$PFAD/$K3" "$PFAD/channels.conf" ;;
-	"4)")   cp -f "$PFAD/$K4" "$PFAD/channels.conf" ;;
-	"5)")   cp -f "$PFAD/$K5" "$PFAD/channels.conf" ;;
-	"6)")   cp -f "$PFAD/$K6" "$PFAD/channels.conf" ;;
-	"7)")   cp -f "$PFAD/$K7" "$PFAD/channels.conf" ;;
-	"8)")   cp -f "$PFAD/$K8" "$PFAD/channels.conf" ;;
-	"9)")   cp -f "$PFAD/$K9" "$PFAD/channels.conf" ;;
-	"10)")   cp -f "$PFAD/$K10" "$PFAD/channels.conf" ;;
-	"11)")   cp -f "$PFAD/$K11" "$PFAD/channels.conf" ;;
-	"12)")   cp -f "$PFAD/$K12" "$PFAD/channels.conf" ;;
-	"13)")   cp -f "$PFAD/$K13" "$PFAD/channels.conf" ;;
-	"14)")   cp -f "$PFAD/$K14" "$PFAD/channels.conf" ;;
-	"15)")   cp -f "$PFAD/$K15" "$PFAD/channels.conf" ;;
-	"16)")   cp -f "$PFAD/$K16" "$PFAD/channels.conf" ;;
-	"17)")   cp -f "$PFAD/$K17" "$PFAD/channels.conf" ;;
-	"18)")   cp -f "$PFAD/$K18" "$PFAD/channels.conf" ;;
-	"19)")   cp -f "$PFAD/$K19" "$PFAD/channels.conf" ;;
-	"20)")   cp -f "$PFAD/$K20" "$PFAD/channels.conf" ;;
-	"21)")   cp -f "$PFAD/$K21" "$PFAD/channels.conf" ;;
-	"22)")   cp -f "$PFAD/$K22" "$PFAD/channels.conf" ;;
-	"23)")   cp -f "$PFAD/$K23" "$PFAD/channels.conf" ;;
-	"24)")   cp -f "$PFAD/$K24" "$PFAD/channels.conf" ;;
-	"25)")   cp -f "$PFAD/$K25" "$PFAD/channels.conf" ;;
-	"26)")   cp -f "$PFAD/$K26" "$PFAD/channels.conf" ;;
-	"27)")   cp -f "$PFAD/$K27" "$PFAD/channels.conf" ;;
-	"28)")   cp -f "$PFAD/$K28" "$PFAD/channels.conf" ;;
-	"29)")   cp -f "$PFAD/$K29" "$PFAD/channels.conf" ;;
-	*)     echo $"Channellist not found"; exit 0 ;;
-esac
+
+# search the channel files
+channellist=""
+for i in $(ls $PFAD/channels.conf.* | cut -d. -f3-); do 
+  channellist=$(echo "$channellist $i") 
+done
+
+
+if ssft_select_single "Channellist" $"Choose Channellist" $channellist; then
+  cp -f "$PFAD/channels.conf.$SSFT_RESULT" "$PFAD/channels.conf"
+else
+  exit 0
+fi
 
 chown vdr:vdr $PFAD/channels.*
 
 if [ "$DIALOG" = "dialog" ]; then
 	vdr-start
-	TIMEOUT=""
 else
 	x-terminal-emulator -e vdr-start
-	TIMEOUT=40000
 fi
 
-$DIALOG --infobox $"Please start one Player in the VDR-Start-Menu\nBackup of Channellist: $BACKUPFILE" 10 60 $TIMEOUT
+ssft_display_message "Info" $"Backup Channellist\n$BACKUPFILE"

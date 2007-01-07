@@ -10,6 +10,8 @@ export TEXTDOMAIN=sidux-vdr
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
 
+VIDEO_DIR="/var/lib/video.00"
+
 [ -r /etc/default/distro ] && source /etc/default/distro
 
 [ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
@@ -69,6 +71,19 @@ if [ "$xkeysym" = ""  ] ; then
      sed -ie '/./!d' /var/lib/vdr/remote.conf
 fi
 
+# is vdr enabled
+enabled=$(grep "ENABLED" "/etc/default/vdr")
+if [ "$enabled" ] ; then
+   [ ! "$(echo $enabled | cut -d= -f2)" = "1" ] && sed -ie 's/ENABLED=.*$/ENABLED=1/' /etc/default/vdr
+fi
+
+# videodir test
+videodir=$(grep "VIDEO_DIR" "/etc/default/vdr")
+[ ! "$videodir" = "" ] && VIDEO_DIR="$(grep "VIDEO_DIR" "/etc/default/vdr" | cut -d\" -f2)" && \
+    [ -L /var/lib/video ] && rm -f /var/lib/video
+[ ! -d $VIDEO_DIR ] && mkdir $VIDEO_DIR && chown -R vdr:vdr $VIDEO_DIR && \
+    [ -L /var/lib/video ] && rm -f /var/lib/video
+[ ! -L /var/lib/video ] && ln -s $VIDEO_DIR /var/lib/video
 
 # start vdr
 /etc/init.d/vdr start

@@ -37,7 +37,7 @@ function start_vdradmind_if_needed()
 	[ ! -x "/etc/init.d/vdradmin-am" ] && return                # not installed
 	[ "$IP" != "localhost" -a "$IP" != "127.0.0.1" ] && return  # not local
 	
-	$DIALOG --yesno $"The VDRAdmin-Daemon is not running on your computer...\nDo you want to start it now?" 0 0 || return    # user doesn't want to start vdradmind
+	#$DIALOG --yesno $"The VDRAdmin-Daemon is not running on your computer...\nDo you want to start it now?" 0 0 || return    # user doesn't want to start vdradmind
 	
 	su-me /etc/init.d/vdradmin-am start
 }

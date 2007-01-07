@@ -16,7 +16,7 @@ Description: metapackage to install sidux-vdr-server and -client
 
 Package: sidux-vdr-server
 Architecture: all
-Depends: sidux-vdr-server-data, vdr, vdr-plugin-xineliboutput, vdr-plugin-channelscan | vdr-plugin-reelchannelscan, vdr-plugin-femon, vdr-plugin-osdteletext, vdr-plugin-tvonscreen, vdr-plugin-nordlichtsepg, vdr-plugin-epgsearch, vdr-plugin-text2skin, vdradmin-am
+Depends: sidux-vdr-server-data, vdr, vdr-plugin-xineliboutput, vdr-plugin-reelchannelscan, vdr-plugin-femon, vdr-plugin-osdteletext, vdr-plugin-tvonscreen, vdr-plugin-nordlichtsepg, vdr-plugin-epgsearch, vdr-plugin-text2skin, vdradmin-am
 Suggests: sidux-vdr-server-extra
 Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server
 Description: metapackage to install the sidux-vdr-menu and xine
@@ -34,7 +34,7 @@ Description: metapackage to install the sidux-vdr-menu and xine
 
 Package: sidux-vdr-client
 Architecture: all
-Depends: sidux-vdr-client-data | sidux-vdr-data, libxine-xvdr, libxine1, xine-ui | libxineliboutput-sxfe | xineliboutput-sxfe | libxineliboutput-fbfe | xineliboutput-fbfe | kaffeine
+Depends: sidux-vdr-client-data | sidux-vdr-data, libxine-xvdr, libxine1, libxineliboutput-sxfe | xine-ui | xineliboutput-sxfe | libxineliboutput-fbfe | xineliboutput-fbfe | kaffeine
 Conflicts: kanotix-vdr-xine, kanotix-vdr, kanotix-vdr-client
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
@@ -43,7 +43,7 @@ Description: metapackage to install the sidux-vdr-menu and xine
 
 Package: sidux-vdr-server-data
 Architecture: all
-Depends: vdr, dialog, xdialog, x-terminal-emulator | xterm, su-me, w-pvrscan, procps
+Depends: vdr, dialog, vdr-gui | xdialog, x-terminal-emulator | xterm, su-me, w-pvrscan, procps, zenity, ssft
 Recommends: distro-defaults, sidux-scripts, w-scan
 Provides: sidux-vdr-data
 Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server-data, kanotix-vdr-client-data, sidux-vdr-client-data

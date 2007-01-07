@@ -1,7 +1,7 @@
-channels/channels.conf.c.*		var/lib/vdr/
+channels/channels.conf.dvb-c.*		var/lib/vdr/
+channels/channels.conf.dvb-t.*		var/lib/vdr/
 channels/channels.conf.kdof.pvr		var/lib/vdr/
-channels/channels.conf.sat		var/lib/vdr/
-channels/channels.conf.t.*		var/lib/vdr/
+channels/channels.conf.Sat		var/lib/vdr/
 conf/setup.conf				var/lib/vdr/sidux-vdr/
 conf/remote.conf			var/lib/vdr/sidux-vdr/
 conf/remote.KBD.conf			var/lib/vdr/sidux-vdr/

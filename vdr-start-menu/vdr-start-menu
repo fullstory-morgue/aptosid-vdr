@@ -5,6 +5,7 @@ export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
 DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/vdr-gui ] && vdr-gui && exit 0
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"

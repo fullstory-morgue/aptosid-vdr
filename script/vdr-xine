@@ -9,15 +9,9 @@ TEXTDOMAIN=sidux-vdr
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-if [ ! -e $HOME/vdrip.conf ]; then
-	VDRIP=`$DIALOG --inputbox $"VDR Server IP" 10 50 "localhost" 2>&1`
-	if [ "$VDRIP" = "" ]; then
-		exit;
-	fi
-	echo $VDRIP > $HOME/vdrip.conf
-else
-	VDRIP=`head -1 $HOME/vdrip.conf`
-fi
+[ ! -e $HOME/vdrip.conf ] && vdr-ip
+VDRIP=`head -1 $HOME/vdrip.conf`
+
 
 # is vdr running
 vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
@@ -44,6 +38,10 @@ if [ -z "$DISPLAY" ]; then
 	vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
 	reset
 else
-	[ "$1" = "sxfe" ] && vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+	if [ "$1" = "sxfe" ] ; then
+           [ ! -e /usr/bin/vdr-sxfe ] && \
+               su-me "x-terminal-emulator -e apt-get update; x-terminal-emulator -e apt-get install xineliboutput-sxfe"
+           vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+        fi
 	[ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi
