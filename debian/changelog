@@ -1,3 +1,9 @@
+sidux-vdr (1.2.13) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  6 Feb 2007 17:16:27 +0100
+
 sidux-vdr (1.2.12) unstable; urgency=low
 
   * change Xdialog to ssft
