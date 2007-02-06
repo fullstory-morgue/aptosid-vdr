@@ -1,4 +1,4 @@
-sidux-vdr (1.2.12) UNRELEASED; urgency=low
+sidux-vdr (1.2.12) unstable; urgency=low
 
   * change Xdialog to ssft
   * new vdr-channelswitch and channels.conf files
