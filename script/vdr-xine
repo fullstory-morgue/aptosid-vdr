@@ -9,7 +9,7 @@ TEXTDOMAIN=sidux-vdr
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-[ ! -e $HOME/vdrip.conf ] && vdr-ip
+[ ! -e $HOME/vdrip.conf ] && /usr/sbin/vdr-ip
 VDRIP=`head -1 $HOME/vdrip.conf`
 
 
@@ -17,7 +17,7 @@ VDRIP=`head -1 $HOME/vdrip.conf`
 vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
 [ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && sleep 5  # wait for xine-autostart if kdestart is to fast
 vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
-[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && su-me x-terminal-emulator -e vdr-start
+[ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && su-me x-terminal-emulator -e /usr/sbin/vdr-start
 
 runxine="0" && runxine=`ps -A|grep -c xine`
 [ ! "$runxine" = "0" ] && /usr/sbin/vdr-xine-close 2>/dev/null
@@ -35,13 +35,13 @@ MRL="xvdr:${NetworkTransportMode}://$VDRIP"
 if [ -z "$DISPLAY" ]; then
 	fuser -k /dev/dsp &>/dev/null
 	clear
-	vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
+	/usr/sbin/vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
 	reset
 else
 	if [ "$1" = "sxfe" ] ; then
            [ ! -e /usr/bin/vdr-sxfe ] && \
                su-me "x-terminal-emulator -e apt-get update; x-terminal-emulator -e apt-get install xineliboutput-sxfe"
-           vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+               /usr/bin/vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
         fi
 	[ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi

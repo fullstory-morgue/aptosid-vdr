@@ -1,3 +1,9 @@
+sidux-vdr (1.2.14) UNRELEASED; urgency=low
+
+  * vdr-start, vdr-xine bugfix 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Wed,  7 Feb 2007 10:39:02 +0100
+
 sidux-vdr (1.2.13) UNRELEASED; urgency=low
 
   * NOT RELEASED YET

@@ -77,6 +77,12 @@ if [ "$enabled" ] ; then
    [ ! "$(echo $enabled | cut -d= -f2)" = "1" ] && sed -ie 's/ENABLED=.*$/ENABLED=1/' /etc/default/vdr
 fi
 
+# is vdradmin-am enabled
+enabled=$(grep "ENABLED" "/etc/default/vdradmin-am")
+if [ "$enabled" ] ; then
+   [ ! "$(echo $enabled | cut -d= -f2)" = "1" ] && sed -ie 's/ENABLED=.*$/ENABLED=1/' /etc/default/vdradmin-am
+fi
+
 # videodir test
 videodir=$(grep "VIDEO_DIR" "/etc/default/vdr")
 [ ! "$videodir" = "" ] && VIDEO_DIR="$(grep "VIDEO_DIR" "/etc/default/vdr" | cut -d\" -f2)" && \
