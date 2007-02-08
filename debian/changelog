@@ -1,4 +1,4 @@
-sidux-vdr (1.2.14) UNRELEASED; urgency=low
+sidux-vdr (1.2.14) unstable; urgency=low
 
   * vdr-start, vdr-xine bugfix 
 
