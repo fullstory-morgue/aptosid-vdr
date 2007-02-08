@@ -1,3 +1,9 @@
+sidux-vdr (1.2.15) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  8 Feb 2007 01:51:06 +0100
+
 sidux-vdr (1.2.14) unstable; urgency=low
 
   * vdr-start, vdr-xine bugfix 
