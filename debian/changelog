@@ -1,3 +1,9 @@
+sidux-vdr (1.2.16) UNRELEASED; urgency=low
+
+  * add xineliboutput-sxfe to rules 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 15 Feb 2007 22:39:41 +0100
+
 sidux-vdr (1.2.15) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
