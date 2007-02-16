@@ -1,4 +1,4 @@
-sidux-vdr (1.2.16) UNRELEASED; urgency=low
+sidux-vdr (1.2.16) unstable; urgency=low
 
   * add xineliboutput-sxfe to rules 
 
