@@ -9,7 +9,6 @@ Standards-Version: 3.7.2
 Package: sidux-vdr
 Architecture: all
 Depends: sidux-vdr-server, sidux-vdr-client
-Conflicts: kanotix-vdr
 Description: metapackage to install sidux-vdr-server and -client
  This metapackage depends on sidux-vdr-server and sidux-vdr-client.
  It may be safely removed from your system.
@@ -18,7 +17,6 @@ Package: sidux-vdr-server
 Architecture: all
 Depends: sidux-vdr-server-data, vdr, vdr-plugin-xineliboutput, vdr-plugin-reelchannelscan, vdr-plugin-femon, vdr-plugin-osdteletext, vdr-plugin-tvonscreen, vdr-plugin-nordlichtsepg, vdr-plugin-epgsearch, vdr-plugin-text2skin, vdradmin-am
 Suggests: sidux-vdr-server-extra, vdr-gui
-Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
  libxine-xvdr.
@@ -27,7 +25,6 @@ Description: metapackage to install the sidux-vdr-menu and xine
 Package: sidux-vdr-server-extra
 Architecture: all
 Depends: sidux-vdr-server, vdr-plugin-streamdev-server, vdr-addon-noad, vdr-plugin-newsticker, vdr-plugin-autotimeredit, vdr-plugin-premiereepg, vdr-plugin-pvrinput, vdr-plugin-radio, vdr-plugin-reelchannelscan, vdr-skins, vdr-plugin-undelete
-Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server-extra
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs useful optional plugins for sidux-vdr-server.
  It may be safely removed from your system.
@@ -35,7 +32,6 @@ Description: metapackage to install the sidux-vdr-menu and xine
 Package: sidux-vdr-client
 Architecture: all
 Depends: sidux-vdr-client-data | sidux-vdr-data, libxine-xvdr, libxine1, libxineliboutput-sxfe, xineliboutput-sxfe
-Conflicts: kanotix-vdr-xine, kanotix-vdr, kanotix-vdr-client
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
  libxine-xvdr.
@@ -46,21 +42,20 @@ Architecture: all
 Depends: vdr, dialog, vdr-gui | xdialog, x-terminal-emulator | xterm, su-me, w-pvrscan, procps, zenity, ssft
 Recommends: distro-defaults, sidux-scripts, w-scan
 Provides: sidux-vdr-data
-Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-server-data, kanotix-vdr-client-data, sidux-vdr-client-data
+Conflicts: sidux-vdr-client-data
 Description: channellists, scripts and data for sidux-vdr-server
  Ask Horst Tritremmel for a longer description.
 
 Package: sidux-vdr-client-data
 Architecture: all
 Depends: dialog, xdialog, x-terminal-emulator | xterm, su-me, procps
-Conflicts: kanotix-vdr, kanotix-vdr-xine, kanotix-vdr-client-data, sidux-vdr-server-data
+Conflicts: sidux-vdr-server-data
 Description: vdr-start-menu and its scripts for sidux-vdr-client
  Ask Horst Tritremmel for a longer description.
 
 Package: sidux-vdr-xine
 Architecture: all
 Depends: sidux-vdr-client
-Conflicts: kanotix-vdr-xine
 Description: metapackage to install sidux-vdr-client
  This is a metapackage provided for compatibility reasons
  and it should only install sidux-vdr-client, which replaces

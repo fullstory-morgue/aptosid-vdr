@@ -1,8 +1,8 @@
-sidux-vdr (1.2.17) UNRELEASED; urgency=low
+sidux-vdr (1.2.17) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * kanotix-vdr was never part of sidux or debian, don't conlict with it.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 16 Feb 2007 23:06:29 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  1 Mar 2007 19:22:34 +0100
 
 sidux-vdr (1.2.16) unstable; urgency=low
 
