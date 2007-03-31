@@ -8,7 +8,7 @@ conf/remote.KBD.conf			var/lib/vdr/sidux-vdr/
 conf/remote.XKeySym.conf		var/lib/vdr/sidux-vdr/
 conf/sidux-vdr.conf			var/lib/vdr/sidux-vdr/
 data/vdr.png				usr/share/pixmaps/
-data/*.desktop				usr/share/applnk/Multimedia/
+data/*.desktop				usr/share/applications/sidux/
 data/*.desktop				etc/skel/Desktop/
 script/vdr-w_pvrscan			usr/sbin/
 script/vdr-config			usr/sbin/
