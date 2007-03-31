@@ -1,3 +1,9 @@
+sidux-vdr (1.2.20) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 31 Mar 2007 04:46:37 +0200
+
 sidux-vdr (1.2.19) unstable; urgency=low
 
   * add XDG compatibility.
