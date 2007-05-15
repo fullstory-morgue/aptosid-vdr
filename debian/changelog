@@ -1,3 +1,9 @@
+sidux-vdr (1.2.21) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 15 May 2007 13:42:20 +0200
+
 sidux-vdr (1.2.20) unstable; urgency=low
 
   * remove obsolete fix-unionfs functionality.
