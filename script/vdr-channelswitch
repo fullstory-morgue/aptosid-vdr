@@ -6,13 +6,6 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-# override tool behaviour through distro-defaults
-FLL_DISTRO_MODE="installed"
-
-[ -r /etc/default/distro ] && source /etc/default/distro
-
-[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
-
 PFAD="/var/lib/vdr";
 
 SSFT_FRONTEND="dialog"
@@ -45,3 +38,4 @@ else
 fi
 
 ssft_display_message "Info" $"Backup Channellist\n$BACKUPFILE"
+

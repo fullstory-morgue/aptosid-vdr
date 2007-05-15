@@ -7,14 +7,7 @@ CONFIGFILE="/var/lib/vdr/sidux-vdr/sidux-vdr.conf"
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-# override tool behaviour through distro-defaults
-FLL_DISTRO_MODE="installed"
-
 VIDEO_DIR="/var/lib/video.00"
-
-[ -r /etc/default/distro ] && source /etc/default/distro
-
-[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
 
 # stopping vdr for setup.conf handling
 /etc/init.d/vdr stop
@@ -96,3 +89,4 @@ videodir=$(grep "VIDEO_DIR" "/etc/default/vdr")
 /etc/init.d/vdradmin-am restart
 echo $"Please wait ..."
 sleep 10
+

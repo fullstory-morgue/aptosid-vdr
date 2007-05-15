@@ -10,13 +10,6 @@ WHAT="libxine1 xine-ui"
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-# override tool behaviour through distro-defaults
-FLL_DISTRO_MODE="installed"
-
-[ -r /etc/default/distro ] && source /etc/default/distro
-
-[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
-
 $DIALOG --title $"Installscript" --yesno \
 $"When running this script, you need an active internet connection!\n\nProceed" 0 0
 answer="$?"

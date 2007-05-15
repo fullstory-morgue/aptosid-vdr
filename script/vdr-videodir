@@ -6,13 +6,6 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-# override tool behaviour through distro-defaults
-FLL_DISTRO_MODE="installed"
-
-[ -r /etc/default/distro ] && source /etc/default/distro
-
-[ "$FLL_DISTRO_MODE" == "live" ] && /usr/sbin/fix-unionfs 2>/dev/null
-
 PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1"_"$2}' && \
       fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1"_"$2}' `
 

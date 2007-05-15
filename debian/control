@@ -40,7 +40,7 @@ Description: metapackage to install the sidux-vdr-menu and xine
 Package: sidux-vdr-server-data
 Architecture: all
 Depends: vdr, dialog, vdr-gui | xdialog, x-terminal-emulator | xterm, su-me, w-pvrscan, procps, zenity, ssft, sidux-xdg
-Recommends: distro-defaults, sidux-scripts, w-scan
+Recommends: distro-defaults, w-scan
 Provides: sidux-vdr-data
 Conflicts: sidux-vdr-client-data
 Description: channellists, scripts and data for sidux-vdr-server
