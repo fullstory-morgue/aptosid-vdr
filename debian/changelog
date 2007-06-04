@@ -1,8 +1,9 @@
-sidux-vdr (1.2.21) UNRELEASED; urgency=low
+sidux-vdr (1.2.21) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * add vdr-plugin-wirbelscan as alternative scanning method.
+  * don't depend on vdr-plugin-femon, it is currently broken.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 15 May 2007 13:42:20 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 04 Jun 2007 22:08:55 +0200
 
 sidux-vdr (1.2.20) unstable; urgency=low
 
