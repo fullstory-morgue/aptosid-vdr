@@ -1,3 +1,9 @@
+sidux-vdr (1.2.23) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Jul 2007 01:19:37 +0200
+
 sidux-vdr (1.2.22) unstable; urgency=low
 
   * add libxine1-ffmpeg to control
