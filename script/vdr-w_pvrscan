@@ -4,8 +4,6 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 NOW=`date +%y-%m-%d_%H:%M:%S`
 
@@ -22,11 +20,10 @@ chown vdr:vdr /var/lib/vdr/channels.conf
 
 echo $"/var/lib/vdr/channels.conf done, Backup of existing channels.conf see $BACKUPFILE"
 
-if [ "$DIALOG" = "dialog" ]; then
+if [ -z "$DISPLAY" ]; then
 	vdr-start
 	TIMEOUT=""
 else
 	x-terminal-emulator -e vdr-start
 	TIMEOUT=40000
 fi
-

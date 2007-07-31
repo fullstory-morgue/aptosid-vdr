@@ -4,16 +4,24 @@
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+# determine system status
+SSFTSH="$(which ssft.sh)"			|| SSFTSH="/usr/bin/ssft.sh"
 
-TMP="$(mktemp -p /tmp/ vdrip-XXXXXXXXXX)"
+# initialize ssft
+#[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
+
 
 IP="localhost"
 [ -e $HOME/vdrip.conf ] && IP=`head -1 $HOME/vdrip.conf`
 
-$DIALOG --inputbox $"VDR Server IP" 10 50 "$IP" 2>"$TMP"
-VDRIP="$(<$TMP)"
+SSFT_DEFAULT=${IP}
+ssft_read_string "IP" $"VDR Server IP"  || exit 1
+unset SSFT_DEFAULT
+
+VDRIP=$SSFT_RESULT
+
 if [ "$VDRIP" = "" ]; then
 	exit 0;
 fi

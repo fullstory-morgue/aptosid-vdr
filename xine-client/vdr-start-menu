@@ -1,51 +1,50 @@
 #!/bin/sh
 
 # Localisation
+if [ -f /usr/bin/gettext.sh ]; then
+	. /usr/bin/gettext.sh || exit 1
+else
+	exit 1
+fi
+
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
+# determine system status
+SSFTSH="$(which ssft.sh)"	|| SSFTSH="/usr/bin/ssft.sh"
+
+# initialize ssft
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
+
 
 VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"
-[ $(echo $LANGUAGE|cut -c1-2) = de ] && VDRMANUAL="www.vdr-wiki.de/wiki/index.php/Benutzerhandbuch"
+[ $(echo $LANG|cut -c1-2) = de ] && VDRMANUAL="www.vdr-wiki.de/wiki/index.php/Benutzerhandbuch"
 
-tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
-trap "rm -f $tempfile" 0 1 2 5 15
-$DIALOG --clear --title $"VDR Menu" \
-        --menu $"Start VDR Programs\n\nMake your choice:" 30 62 20 \
-        ""  "~~~~~~~~ "$"xine"" ~~~~~~~~ " \
-        "1)"  $"sx(fb)fe-player (TV-Picture)" \
-        "2)"  $"xine-player (TV-Picture)" \
-        "3)"  $"Get xine Keyboardlayout for VDR" \
-        "4)"  $"Change VDR IP-Adress for Xine-Player" \
-        ""  "~~~~~~~~ "$"Miscellaneous"" ~~~~~~~~ " \
-        "5)"  $"VDR-Update" \
-        "6)"  $"Xine-Autostart (TV-Picture)" \
-        "7)"  $"vdradmin (Webfrontend)" \
-        "8)"  $"Kanotix-VDR config" \
-        "9)"  $"VDR User Manual" \
-        "10)"  $"Show xine Keyboardlayout" \
-        "11)"  $"Exit" \
-	2> $tempfile
-answer="$?"
-[ "$answer" = 1 ] && exit 1
-answer=`cat $tempfile`
-rm -f "$tempfile"
 
+ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake your choice:")" \
+	"1) $(gettext "sx(fb)fe-player (TV-Picture)")" \
+	"4) $(gettext "Change VDR IP-Adress for Xine-Player")" \
+	"5) $(gettext "VDR-Update")" \
+	"6) $(gettext "Xine-Autostart (TV-Picture)")" \
+	"7) $(gettext "vdradmin (Webfrontend)")" \
+	"8) $(gettext "VDR User Manual")" \
+	"9)  $(gettext "Show xine Keyboardlayout")" \
+	"10) $(gettext "Exit")" \
+      || exit
+
+answer=$(echo "$SSFT_RESULT" | cut -d\) -f1)
 
 case $answer in
-    "1)") /usr/sbin/vdr-xine sxfe && exit;;
-    "2)") /usr/sbin/vdr-xine xine && exit;;
-    "3)") x-terminal-emulator -e /usr/sbin/vdr-xine-keymap;;
-    "4)") /usr/sbin/vdr-ip;;
-    "5)") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
-    "6)") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
-    "7)") /usr/sbin/vdr-vdradmin;;
-    "8)") /usr/sbin/vdr-config;;
-    "9)") x-www-browser "http://${VDRMANUAL}" &;;
-    "10)") x-terminal-emulator -C -e /usr/sbin/vdr-xine-tasteninfo;;
-    "11)") exit;;
+    "1") /usr/sbin/vdr-xine sxfe && exit;;
+    "4") /usr/sbin/vdr-ip;;
+    "5") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
+    "6") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
+    "7") /usr/sbin/vdr-vdradmin;;
+    "8") x-www-browser "http://${VDRMANUAL}" &;;
+    "9") x-terminal-emulator -C -e /usr/sbin/vdr-xine-tasteninfo;;
+    "10") exit;;
     *)  break;;
 esac
 

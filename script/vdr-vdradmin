@@ -37,15 +37,12 @@ function start_vdradmind_if_needed()
 	[ ! -x "/etc/init.d/vdradmin-am" ] && return                # not installed
 	[ "$IP" != "localhost" -a "$IP" != "127.0.0.1" ] && return  # not local
 	
-	#$DIALOG --yesno $"The VDRAdmin-Daemon is not running on your computer...\nDo you want to start it now?" 0 0 || return    # user doesn't want to start vdradmind
 	
 	su-me /etc/init.d/vdradmin-am start
 }
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
-[ "$DIALOG" = "dialog" ] && echo "only for Xwindows" && exit
+[ -z "$DISPLAY" ] && echo "only for Xwindows" && exit
 
 # get IP
 IP=$(head -1 $HOME/vdrip.conf)
@@ -81,6 +78,14 @@ if [ -r "$CONFIGFILE" ]; then
 elif [ -f "$CONFIGFILE" ]; then
 	# configfile is not readable, but exists, so the user has to give Username and Password.
 	AUTH="$($DIALOG --separator ":" --password --2inputsbox $"VDRAdmin" 0 0 $"VDRAdmin Username" "$USERNAME" $"VDRAdmin Password" "$PASSWORD" 2>&1)"
+
+	SSFT_DEFAULT=linvdr
+	ssft_read_string $"VDRAdmin" $"VDRAdmin Username"  || exit
+	AUTH=${SSFT_RESULT}
+	ssft_read_string $"VDRAdmin" $"VDRAdmin Password"  || exit
+	AUTH=${AUTH}:${SSFT_RESULT}
+	unset SSFT_DEFAULT
+
 	[ -z "$AUTH" ] && exit
 	start_vdradmind_if_needed
 	x-www-browser "http://${AUTH}@$IP:8001/" &

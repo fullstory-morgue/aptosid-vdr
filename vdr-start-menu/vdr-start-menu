@@ -1,71 +1,68 @@
 #!/bin/sh
 
 # Localisation
+if [ -f /usr/bin/gettext.sh ]; then
+	. /usr/bin/gettext.sh || exit 1
+else
+	exit 1
+fi
+
 export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/vdr-gui ] && vdr-gui && exit 0
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+
+# determine system status
+SSFTSH="$(which ssft.sh)"	|| SSFTSH="/usr/bin/ssft.sh"
+
+# initialize ssft
+#[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
+
 
 VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"
-[ $(echo $LANGUAGE|cut -c1-2) = de ] && VDRMANUAL="www.vdr-wiki.de/wiki/index.php/Benutzerhandbuch"
+[ $(echo $LANG|cut -c1-2) = de ] && VDRMANUAL="www.vdr-wiki.de/wiki/index.php/Benutzerhandbuch"
 
-#DIALOG=dialog
 IP=`head -1 "$HOME/vdrip.conf" 2>/dev/null`
 [ "$IP" = "" ] && IP="localhost"
 
-tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
-trap "rm -f $tempfile" 0 1 2 5 15
-$DIALOG --clear --title $"VDR Menu" \
-		--menu $"Start VDR Programs\n\nMake your choice:" 37 65 25 \
-		""  "~~~~~~~~ "$"xine"" ~~~~~~~~ " \
-		"1)"  $"sx(fb)fe-player (TV-Picture)" \
-		"2)"  $"xine-player (TV-Picture)" \
-		"3)"  $"Get xine Keyboardlayout for VDR" \
-		"4)"  $"Change VDR IP-Adress for Xine-Player" \
-		""  "~~~~~~~~ "$"VDR"" ~~~~~~~~ " \
-		"5)"  $"Start VDR" \
-		"6)"  $"Stop VDR" \
-		"7)"  $"Change VDR Channelslist" \
-		"8)"  $"Allow client connect (insert IP from client)" \
-		"9)"  $"VDR-Channelscan Analog-Tuner Typ PVR" \
-		"10)"  $"Choose VDR-Harddiskpartition for recordings (Linux/FAT)" \
-		""  "~~~~~~~~ "$"Miscellaneous"" ~~~~~~~~ " \
-		"11)"  $"VDR-Update" \
-		"12)"  $"VDR-Autostart" \
-		"13)"  $"Xine-Autostart (TV-Picture)" \
-		"14)"  $"vdradmin (Webfrontend)" \
-		"15)"  $"Kanotix-VDR config" \
-		"16)"  $"VDR User Manual" \
-		"17)"  $"Show xine Keyboardlayout" \
-		"18)"  $"Exit" \
-			2> $tempfile
-answer="$?"
-[ "$answer" = 1 ] && exit 1
-answer=`cat $tempfile`
-rm -f "$tempfile"
 
+ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake your choice:")" \
+	"1) $(gettext "sx(fb)fe-player (TV-Picture)")" \
+	"4) $(gettext "Change VDR IP-Adress for Xine-Player")" \
+	"5) $(gettext "Start VDR")" \
+	"6) $(gettext "Stop VDR")" \
+	"7) $(gettext "Change VDR Channelslist")" \
+	"8) $(gettext "Allow client connect (insert IP from client)")" \
+	"9) $(gettext "VDR-Channelscan Analog-Tuner Typ PVR")" \
+	"10) $(gettext "Choose VDR-Harddiskpartition for recordings (Linux/FAT)")" \
+	"11) $(gettext "VDR-Update")" \
+	"12) $(gettext "VDR-Autostart")" \
+	"13) $(gettext "Xine-Autostart (TV-Picture)")" \
+	"14) $(gettext "vdradmin (Webfrontend)")" \
+	"15) $(gettext "VDR User Manual")" \
+	"16) $(gettext "Show xine Keyboardlayout")" \
+	"17) $(gettext "Exit")" \
+      || exit
+
+answer=$(echo "$SSFT_RESULT" | cut -d\) -f1)
 
 case $answer in
-	"1)") /usr/sbin/vdr-xine sxfe && exit;;
-	"2)") /usr/sbin/vdr-xine xine && exit;;
-	"3)") x-terminal-emulator -e /usr/sbin/vdr-xine-keymap;;
-	"4)") /usr/sbin/vdr-ip;;
-	"5)") su-me x-terminal-emulator -e /usr/sbin/vdr-start;;
-	"6)") su-me x-terminal-emulator -e /usr/sbin/vdr-stop;;
-	"7)") su-me /usr/sbin/vdr-channelswitch;;
-	"8)") su-me kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf;;
-	"9)") su-me x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput;;
-	"10)") su-me x-terminal-emulator -e /usr/sbin/vdr-videodir;;
-	"11)") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
-	"12)") su-me x-terminal-emulator -e /usr/sbin/vdr-autorun;;
-	"13)") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
-	"14)") /usr/sbin/vdr-vdradmin;;
-	"15)") /usr/sbin/vdr-config;;
-	"16)") x-www-browser "http://${VDRMANUAL}" &;;
-	"17)") x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo;;
-	"18)") exit;;
+	"1") /usr/sbin/vdr-xine sxfe && exit;;
+	"4") /usr/sbin/vdr-ip;;
+	"5") su-me x-terminal-emulator -e /usr/sbin/vdr-start;;
+	"6") su-me x-terminal-emulator -e /usr/sbin/vdr-stop;;
+	"7") su-me /usr/sbin/vdr-channelswitch;;
+	"8") su-me kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf;;
+	"9") su-me x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput;;
+	"10") su-me x-terminal-emulator -e /usr/sbin/vdr-videodir;;
+	"11") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
+	"12") su-me x-terminal-emulator -e /usr/sbin/vdr-autorun;;
+	"13") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
+	"14") /usr/sbin/vdr-vdradmin;;
+	"15") x-www-browser "http://${VDRMANUAL}" &;;
+	"16") x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo;;
+	"17") exit;;
 	*)  break;;
 esac
 

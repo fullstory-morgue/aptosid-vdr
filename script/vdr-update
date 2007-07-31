@@ -5,16 +5,7 @@ export TEXTDOMAINDIR="/usr/share/locale"
 export TEXTDOMAIN=sidux-vdr
 
 DOWNLOAD="http://sidux.com/files/misc/"
-WHAT="libxine1 xine-ui"
-
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
-
-$DIALOG --title $"Installscript" --yesno \
-$"When running this script, you need an active internet connection!\n\nProceed" 0 0
-answer="$?"
-[ "$answer" = 1 ] && exit 1
-tput clear
+WHAT=""
 
 echo $"VDR Update Start"
 

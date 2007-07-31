@@ -3,11 +3,9 @@ data/*.desktop			usr/share/applications/sidux/
 data/*.desktop			etc/skel/Desktop/
 script/vdr-vdradmin		usr/sbin/
 script/vdr-ip			usr/sbin/
-script/vdr-config		usr/sbin/
 script/vdr-update		usr/sbin/
 script/vdr-xine			usr/sbin/
 script/vdr-xine-autorun		usr/sbin/
 script/vdr-xine-close		usr/sbin/
-script/vdr-xine-keymap		usr/sbin/
 script/vdr-xine-tasteninfo	usr/sbin/
 xine-client/vdr-start-menu	usr/sbin/

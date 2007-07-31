@@ -6,8 +6,6 @@ USERCONFIG="$HOME/.sidux-vdr.conf"
 TEXTDOMAINDIR="/usr/share/locale"
 TEXTDOMAIN=sidux-vdr
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 
 [ ! -e $HOME/vdrip.conf ] && /usr/sbin/vdr-ip
 VDRIP=`head -1 $HOME/vdrip.conf`

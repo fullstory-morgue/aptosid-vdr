@@ -1,8 +1,12 @@
 sidux-vdr (1.2.23) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Jul 2007 01:19:37 +0200
+  [ Horst Tritremmel ]
+  * don't recommend Xdialog any longer, it isn't used any longer.
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 31 Jul 2007 13:58:38 +0200
 
 sidux-vdr (1.2.22) unstable; urgency=low
 
