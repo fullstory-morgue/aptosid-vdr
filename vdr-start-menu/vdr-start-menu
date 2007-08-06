@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# start vdr-gui if available
+[ -x "/usr/bin/vdr-gui" ] && exec vdr-gui && exit 0
+
 # Localisation
 if [ -f /usr/bin/gettext.sh ]; then
 	. /usr/bin/gettext.sh || exit 1
@@ -18,6 +21,7 @@ SSFTSH="$(which ssft.sh)"	|| SSFTSH="/usr/bin/ssft.sh"
 #[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
 . "$SSFTSH"
 [ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
+
 
 
 VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"

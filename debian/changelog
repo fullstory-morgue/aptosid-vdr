@@ -1,8 +1,12 @@
 sidux-vdr (1.2.24) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 31 Jul 2007 14:32:18 +0200
+  [ Horst Tritremmel ]
+  * start vdr-gui if available
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 06 Aug 2007 12:16:16 +0200
 
 sidux-vdr (1.2.23) unstable; urgency=low
 
