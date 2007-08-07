@@ -1,9 +1,5 @@
-sidux-vdr (1.2.24) UNRELEASED; urgency=low
+sidux-vdr (1.2.24) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * start vdr-gui if available
 
  -- Horst Tritremmel <hjt@sidux.com>  Mon, 06 Aug 2007 12:16:16 +0200
