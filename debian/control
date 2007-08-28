@@ -18,8 +18,7 @@ Architecture: all
 Depends: sidux-vdr-server-data, vdr, vdr-plugin-xineliboutput, vdr-plugin-channelscan | vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan, vdr-plugin-osdteletext, vdr-plugin-tvonscreen, vdr-plugin-nordlichtsepg, vdr-plugin-epgsearch, vdr-plugin-text2skin, vdradmin-am
 Suggests: sidux-vdr-server-extra, vdr-gui
 Description: metapackage to install the sidux-vdr-menu and xine
- This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
- libxine-xvdr.
+ This metapackage installs sidux-vdr-data (or sidux-vdr-client-data).
  It may be safely removed from your system.
 
 Package: sidux-vdr-server-extra
@@ -31,10 +30,10 @@ Description: metapackage to install the sidux-vdr-menu and xine
 
 Package: sidux-vdr-client
 Architecture: all
-Depends: sidux-vdr-client-data | sidux-vdr-data, libxine-xvdr, libxine1, libxine1-ffmpeg, libxineliboutput-sxfe, xineliboutput-sxfe
+Depends: sidux-vdr-client-data | sidux-vdr-data, libxine1-xvdr, libxine1, libxine1-ffmpeg, libxineliboutput-sxfe, xineliboutput-sxfe
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
- libxine-xvdr.
+ libxine1-xvdr.
  It may be safely removed from your system.
 
 Package: sidux-vdr-server-data
