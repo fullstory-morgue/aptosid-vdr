@@ -1,3 +1,9 @@
+sidux-vdr (1.2.26) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 29 Aug 2007 00:30:04 +0200
+
 sidux-vdr (1.2.25) unstable; urgency=low
 
   * libxine-xvdr is no more, switch over to libxine1-xvdr.
