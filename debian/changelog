@@ -1,8 +1,8 @@
-sidux-vdr (1.2.26) UNRELEASED; urgency=low
+sidux-vdr (1.2.26) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix /etc/skel/ abuse.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 29 Aug 2007 00:30:04 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Sep 2007 15:36:35 +0200
 
 sidux-vdr (1.2.25) unstable; urgency=low
 

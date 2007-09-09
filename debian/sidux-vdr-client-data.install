@@ -1,6 +1,5 @@
 data/vdr.png			usr/share/pixmaps/
 data/*.desktop			usr/share/applications/sidux/
-data/*.desktop			etc/skel/Desktop/
 script/vdr-vdradmin		usr/sbin/
 script/vdr-ip			usr/sbin/
 script/vdr-update		usr/sbin/
