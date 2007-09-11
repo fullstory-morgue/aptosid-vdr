@@ -5,6 +5,8 @@ Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Horst Tritremmel <peter_weber69@gmx.at>
 Build-Depends: cdbs, debhelper (>= 5)
 Standards-Version: 3.7.2
+XS-Vcs-Svn: svn://svn.berlios.de/fullstory/sidux-vdr/trunk
+XS-Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/sidux-vdr/trunk/
 
 Package: sidux-vdr
 Architecture: all

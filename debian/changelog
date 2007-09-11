@@ -1,8 +1,9 @@
 sidux-vdr (1.2.27) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * add VCS control headers.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Sep 2007 15:50:07 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Sep 2007 20:25:22 +0200
 
 sidux-vdr (1.2.26) unstable; urgency=low
 
