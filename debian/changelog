@@ -1,3 +1,9 @@
+sidux-vdr (1.2.29) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Dec 2007 00:07:12 +0100
+
 sidux-vdr (1.2.28) unstable; urgency=low
 
   * update to Standards-Version 3.7.3, no changes necessary.
