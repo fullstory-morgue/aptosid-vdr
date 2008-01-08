@@ -37,15 +37,33 @@ ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake
 answer=$(echo "$SSFT_RESULT" | cut -d\) -f1)
 
 case $answer in
-    "1") /usr/sbin/vdr-xine sxfe && exit;;
-    "4") /usr/sbin/vdr-ip;;
-    "5") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
-    "6") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
-    "7") /usr/sbin/vdr-vdradmin;;
-    "8") x-www-browser "http://${VDRMANUAL}" &;;
-    "9") x-terminal-emulator -C -e /usr/sbin/vdr-xine-tasteninfo;;
-    "10") exit;;
-    *)  break;;
+	"1")
+    		/usr/sbin/vdr-xine sxfe && exit
+		;;
+	"4")
+    		/usr/sbin/vdr-ip
+		;;
+	"5")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-update"
+		;;
+	"6")
+		x-terminal-emulator -e /usr/sbin/vdr-xine-autorun
+		;;
+	"7")
+		/usr/sbin/vdr-vdradmin
+		;;
+	"8")
+		x-www-browser "http://${VDRMANUAL}" &
+		;;
+	"9")
+		x-terminal-emulator -C -e /usr/sbin/vdr-xine-tasteninfo
+		;;
+	"10")
+		exit
+		;;
+	*)
+		break
+		;;
 esac
 
 exec /usr/sbin/vdr-start-menu

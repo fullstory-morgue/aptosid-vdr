@@ -52,22 +52,55 @@ ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake
 answer=$(echo "$SSFT_RESULT" | cut -d\) -f1)
 
 case $answer in
-	"1") /usr/sbin/vdr-xine sxfe && exit;;
-	"4") /usr/sbin/vdr-ip;;
-	"5") su-me x-terminal-emulator -e /usr/sbin/vdr-start;;
-	"6") su-me x-terminal-emulator -e /usr/sbin/vdr-stop;;
-	"7") su-me /usr/sbin/vdr-channelswitch;;
-	"8") su-me kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf;;
-	"9") su-me x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput;;
-	"10") su-me x-terminal-emulator -e /usr/sbin/vdr-videodir;;
-	"11") su-me x-terminal-emulator -e /usr/sbin/vdr-update;;
-	"12") su-me x-terminal-emulator -e /usr/sbin/vdr-autorun;;
-	"13") x-terminal-emulator -e /usr/sbin/vdr-xine-autorun;;
-	"14") /usr/sbin/vdr-vdradmin;;
-	"15") x-www-browser "http://${VDRMANUAL}" &;;
-	"16") x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo;;
-	"17") exit;;
-	*)  break;;
+	"1")
+		/usr/sbin/vdr-xine sxfe && exit
+		;;
+	"4")
+		/usr/sbin/vdr-ip
+		;;
+	"5")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-start"
+		;;
+	"6")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-stop"
+		;;
+	"7")
+		su-to-root -X -c "/usr/sbin/vdr-channelswitch"
+		;;
+	"8")
+		su-to-root -X -c "/usr/bin/kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf"
+		;;
+	"9")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput"
+		;;
+	"10")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-videodir"
+		;;
+	"11")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-update"
+		;;
+	"12")
+		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-autorun"
+		;;
+	"13")
+		x-terminal-emulator -e /usr/sbin/vdr-xine-autorun
+		;;
+	"14")
+		/usr/sbin/vdr-vdradmin
+		;;
+	"15")
+		x-www-browser "http://${VDRMANUAL}" &
+		;;
+	"16")
+		x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo
+		;;
+	"17")
+		exit
+		;;
+	*)
+		break
+		;;
 esac
 
 exec /usr/sbin/vdr-start-menu
+

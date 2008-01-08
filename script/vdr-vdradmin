@@ -38,7 +38,7 @@ function start_vdradmind_if_needed()
 	[ "$IP" != "localhost" -a "$IP" != "127.0.0.1" ] && return  # not local
 	
 	
-	su-me /etc/init.d/vdradmin-am start
+	su-to-root -c "/etc/init.d/vdradmin-am start"
 }
 
 
