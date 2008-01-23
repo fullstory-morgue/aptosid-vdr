@@ -27,7 +27,8 @@ XineFullscreen=""
 NetworkTransportMode="tcp"
 [ -f "$USERCONFIG" ] && [ "$(grep ^NetworkTransportMode $USERCONFIG | cut -d= -f2)" -eq 1 ] && NetworkTransportMode="udp"
 
-MRL="xvdr:${NetworkTransportMode}://$VDRIP"
+#MRL="xvdr:${NetworkTransportMode}://$VDRIP"
+MRL="xvdr://$VDRIP"  # NetworkTransportMode does not work
 [ -f "$USERCONFIG" ] && [ "$(grep ^XinePlugin $USERCONFIG | cut -d= -f2)" -eq 1 ] && MRL="vdr-socket:/"$VDRIP"#demux:mpeg_pes"
 
 if [ -z "$DISPLAY" ]; then
