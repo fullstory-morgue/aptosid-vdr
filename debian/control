@@ -25,7 +25,7 @@ Description: metapackage to install the sidux-vdr-menu and xine
 
 Package: sidux-vdr-server-extra
 Architecture: all
-Depends: sidux-vdr-server, vdr-plugin-streamdev-server, vdr-addon-noad, vdr-plugin-newsticker, vdr-plugin-autotimeredit, vdr-plugin-premiereepg, vdr-plugin-pvrinput, vdr-plugin-radio, vdr-plugin-channelscan | vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan, vdr-skins, vdr-plugin-undelete
+Depends: sidux-vdr-server, vdr-plugin-streamdev-server, vdr-addon-noad, vdr-plugin-newsticker, vdr-plugin-autotimeredit, vdr-plugin-premiereepg, vdr-plugin-radio, vdr-plugin-channelscan | vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan, vdr-skins, vdr-plugin-undelete
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs useful optional plugins for sidux-vdr-server.
  It may be safely removed from your system.
