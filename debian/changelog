@@ -1,3 +1,9 @@
+sidux-vdr (1.3.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 14 Mar 2008 13:18:40 +0100
+
 sidux-vdr (1.3.5) unstable; urgency=low
 
   * drop dependency on vdr-plugin-pvrinput, it's FTBS.
