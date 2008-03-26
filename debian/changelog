@@ -5,8 +5,9 @@ sidux-vdr (1.3.6) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * changed from vdradmin to vdr-plugin-live webfrontend
+  * vdr-plugin-epgsearch added
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 26 Mar 2008 21:12:47 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 26 Mar 2008 22:14:29 +0100
 
 sidux-vdr (1.3.5) unstable; urgency=low
 
