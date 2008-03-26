@@ -78,10 +78,6 @@ msgstr ""
 msgid "Xine-Autostart (TV-Picture)"
 msgstr ""
 
-#: vdr-start-menu/vdr-start-menu:32 xine-client/vdr-start-menu:22
-msgid "vdradmin (Webfrontend)"
-msgstr ""
-
 #: vdr-start-menu/vdr-start-menu:33
 msgid "Kanotix-VDR config"
 msgstr ""
@@ -212,22 +208,16 @@ msgstr ""
 msgid "Update done"
 msgstr ""
 
-#: script/vdr-vdradmin:40
-msgid ""
-"The VDRAdmin-Daemon is not running on your computer...\\nDo you want to "
-"start it now?"
-msgstr ""
-
-#: script/vdr-vdradmin:54
+#: script/vdr-plugin-live:54
 msgid "Warning: Password will be echoed and stored unencrypted in $USERCONFIG!"
 msgstr ""
 
-#: script/vdr-vdradmin:55
-msgid "VDRAdmin Username: "
+#: script/vdr-plugin-live:55
+msgid "VDRLive Username: "
 msgstr ""
 
 #: script/vdr-vdradmin:57
-msgid "VDRAdmin Password: "
+msgid "VDRLive Password: "
 msgstr ""
 
 #: script/vdr-vdradmin:62
@@ -235,15 +225,15 @@ msgid "Your username/password has been written to $USERCONFIG"
 msgstr ""
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin"
+msgid "VDRLive"
 msgstr ""
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin Username"
+msgid "VDRLive Username"
 msgstr ""
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin Password"
+msgid "VDRLive Password"
 msgstr ""
 
 #: script/vdr-videodir:34

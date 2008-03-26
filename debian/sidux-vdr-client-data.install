@@ -1,7 +1,7 @@
 data/vdr.png			usr/share/pixmaps/
 data/*.desktop			usr/share/applications/sidux/
-script/vdr-vdradmin		usr/sbin/
 script/vdr-ip			usr/sbin/
+script/vdr-live			usr/sbin/
 script/vdr-update		usr/sbin/
 script/vdr-xine			usr/sbin/
 script/vdr-xine-autorun		usr/sbin/

@@ -90,10 +90,6 @@ msgstr "VDR-Autostart"
 msgid "Xine-Autostart (TV-Picture)"
 msgstr "Xine-Autostart (TV Bild)"
 
-#: vdr-start-menu/vdr-start-menu:32 xine-client/vdr-start-menu:22
-msgid "vdradmin (Webfrontend)"
-msgstr "vdradmin (Webfrontend)"
-
 #: vdr-start-menu/vdr-start-menu:33 xine-client/vdr-start-menu:23
 msgid "Kanotix-VDR config"
 msgstr "Kanotix-VDR Konfiguration"
@@ -229,39 +225,29 @@ msgstr "VDR Update Start"
 msgid "Update done"
 msgstr "Update ausgeführt"
 
-#: script/vdr-vdradmin:40
-msgid ""
-"The VDRAdmin-Daemon is not running on your computer...\\nDo you want to "
-"start it now?"
-msgstr "Der VDRAdmin-Daemon läuft gerade nicht auf ihrem Computer...\\nWollen Sie ihn jetzt starten?"
-
-#: script/vdr-vdradmin:54
+#: script/vdr-plugin-live:54
 msgid "Warning: Password will be echoed and stored unencrypted in $USERCONFIG!"
 msgstr "Warnung: Das Passwort wird angezeigt und unverschlüsselt in $USERCONFIG gespeichert!"
 
 #: script/vdr-vdradmin:55
-msgid "VDRAdmin Username: "
-msgstr "VDRAdmin-Benutzername:"
+msgid "VDRLive Username: "
+msgstr "VDRLive-Benutzername:"
 
 #: script/vdr-vdradmin:57
-msgid "VDRAdmin Password: "
-msgstr "VDRAdmin-Passwort:"
+msgid "VDRLive Password: "
+msgstr "VDRLive-Passwort:"
 
 #: script/vdr-vdradmin:62
 msgid "Your username/password has been written to $USERCONFIG"
 msgstr "Ihr Benutzername/Passwort wurde in $USERCONFIG gespeichert."
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin"
-msgstr "VDRAdmin"
+msgid "VDRLive Username"
+msgstr "VDRLive-Benutzername"
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin Username"
-msgstr "VDRAdmin-Benutzername"
-
-#: script/vdr-vdradmin:80
-msgid "VDRAdmin Password"
-msgstr "VDRAdmin-Passwort"
+msgid "VDRLive Password"
+msgstr "VDRLive-Passwort"
 
 #: script/vdr-videodir:34
 msgid "Abort"

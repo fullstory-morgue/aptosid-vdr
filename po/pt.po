@@ -87,10 +87,6 @@ msgstr "VDR-Auto-iniciar"
 msgid "Xine-Autostart (TV-Picture)"
 msgstr "Xine-Auto-iniciar (Imagem-TV)"
 
-#: vdr-start-menu/vdr-start-menu:32 xine-client/vdr-start-menu:22
-msgid "vdradmin (Webfrontend)"
-msgstr "vdradmin (página web)"
-
 #: vdr-start-menu/vdr-start-menu:33 xine-client/vdr-start-menu:23
 msgid "Kanotix-VDR config"
 msgstr "Configuração Kanotix-VDR"
@@ -223,22 +219,16 @@ msgstr "VDR Iniciar Actualização"
 msgid "Update done"
 msgstr "Actualização terminada."
 
-#: script/vdr-vdradmin:40
-msgid ""
-"The VDRAdmin-Daemon is not running on your computer...\\nDo you want to "
-"start it now?"
-msgstr "O processo VDRAdmin não está a ser executado no computador...\\nDeseja iniciá-lo agora?"
-
-#: script/vdr-vdradmin:54
+#: script/vdr-plugin-live:54
 msgid "Warning: Password will be echoed and stored unencrypted in $USERCONFIG!"
 msgstr "Warnung: Das Passwort wird angezeigt und unverschlüsselt in $USERCONFIG gespeichert!"
 
-#: script/vdr-vdradmin:55
-msgid "VDRAdmin Username: "
+#: script/vdr-plugin-live:55
+msgid "VDRLive Username: "
 msgstr "VDR Utilizador de Administrador:"
 
 #: script/vdr-vdradmin:57
-msgid "VDRAdmin Password: "
+msgid "VDRLive Password: "
 msgstr "VDR Senha de Administrador:"
 
 #: script/vdr-vdradmin:62
@@ -246,15 +236,15 @@ msgid "Your username/password has been written to $USERCONFIG"
 msgstr "O utilizador e senha foram escritos no ficheiro $USERCONFIG."
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin"
+msgid "VDRLive"
 msgstr "VDR Administração"
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin Username"
+msgid "VDRLive Username"
 msgstr "VDR Utilizador de Administração"
 
 #: script/vdr-vdradmin:80
-msgid "VDRAdmin Password"
+msgid "VDRLive Password"
 msgstr "VDR Senha de Administração"
 
 #: script/vdr-videodir:34

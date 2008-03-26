@@ -43,7 +43,7 @@ ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake
 	"11) $(gettext "VDR-Update")" \
 	"12) $(gettext "VDR-Autostart")" \
 	"13) $(gettext "Xine-Autostart (TV-Picture)")" \
-	"14) $(gettext "vdradmin (Webfrontend)")" \
+	"14) $(gettext "vdrlive (Webfrontend)")" \
 	"15) $(gettext "VDR User Manual")" \
 	"16) $(gettext "Show xine Keyboardlayout")" \
 	"17) $(gettext "Exit")" \
@@ -86,7 +86,7 @@ case $answer in
 		x-terminal-emulator -e /usr/sbin/vdr-xine-autorun
 		;;
 	"14")
-		/usr/sbin/vdr-vdradmin
+		/usr/sbin/vdr-live
 		;;
 	"15")
 		x-www-browser "http://${VDRMANUAL}" &

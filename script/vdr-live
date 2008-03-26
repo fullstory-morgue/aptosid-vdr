@@ -1,0 +1,9 @@
+#!/bin/bash
+
+[ -z "$DISPLAY" ] && echo "only for Xwindows" && exit
+
+# get IP
+IP=$(head -1 $HOME/vdrip.conf)
+[ -z "$IP" ] && IP="localhost"
+
+exec x-www-browser "http://$IP:8008/?action=login&login=admin&password=live" &

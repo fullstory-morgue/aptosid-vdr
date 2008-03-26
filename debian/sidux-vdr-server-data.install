@@ -13,6 +13,7 @@ script/vdr-w_pvrscan			usr/sbin/
 script/vdr-channelswitch		usr/sbin/
 script/vdr-autorun			usr/sbin/
 script/vdr-ip				usr/sbin/
+script/vdr-live				usr/sbin/
 script/vdr-start			usr/sbin/
 script/vdr-stop				usr/sbin/
 script/vdr-update			usr/sbin/
@@ -21,5 +22,4 @@ script/vdr-xine				usr/sbin/
 script/vdr-xine-autorun			usr/sbin/
 script/vdr-xine-close			usr/sbin/
 script/vdr-xine-tasteninfo		usr/sbin/
-script/vdr-vdradmin			usr/sbin/
 vdr-start-menu/vdr-start-menu		usr/sbin/

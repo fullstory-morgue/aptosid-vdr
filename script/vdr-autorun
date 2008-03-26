@@ -10,17 +10,12 @@ $DIALOG --title $"VDR Autostart" --yesno $"Shall VDR be started as default at bo
 	answer_autostart="$?"
 	tput clear
 
-[ -x /usr/sbin/unfreeze-rc.d ] && /usr/sbin/unfreeze-rc.d
 if [ "$answer_autostart" = 0 ] ; then
 	update-rc.d -f vdr remove
-	update-rc.d -f vdradmin-am remove
 	update-rc.d vdr defaults 99
-	update-rc.d vdradmin-am defaults 99
 else
 	update-rc.d -f vdr remove
-	update-rc.d -f vdradmin-am remove
 fi
-[ -x /usr/sbin/freeze-rc.d ] && /usr/sbin/freeze-rc.d
 
 echo
 echo $"Press any key" && read
