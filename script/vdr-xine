@@ -34,13 +34,14 @@ MRL="xvdr://$VDRIP"  # NetworkTransportMode does not work
 if [ -z "$DISPLAY" ]; then
 	fuser -k /dev/dsp &>/dev/null
 	clear
-	/usr/sbin/vdr-fbfe --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 "$MRL" &>/dev/null
+	/usr/sbin/vdr-fbfe "$MRL" &>/dev/null
 	reset
 else
 	if [ "$1" = "sxfe" ] ; then
            [ ! -e /usr/bin/vdr-sxfe ] && \
                su-to-root -X -c "/usr/bin/x-terminal-emulator -e apt-get update; x-terminal-emulator -e apt-get install xineliboutput-sxfe"
-               /usr/bin/vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+               #/usr/bin/vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
+               /usr/bin/vdr-sxfe ${XineFullscreen} $MRL
         fi
 	[ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi
