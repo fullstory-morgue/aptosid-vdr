@@ -1,15 +1,9 @@
-sidux-vdr (1.3.7+nmu1) UNRELEASED; urgency=low
+sidux-vdr (1.3.7) unstable; urgency=low
 
   * Non-maintainer upload.
   * vdr-sxfe start option changed 
 
  -- Horst Tritremmel <hjt@sidux.com>  Sat, 10 May 2008 22:12:11 +0200
-
-sidux-vdr (1.3.7) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 27 Mar 2008 01:23:58 +0100
 
 sidux-vdr (1.3.6) unstable; urgency=low
 
