@@ -1,3 +1,9 @@
+sidux-vdr (1.3.9) unstable; urgency=low
+
+  * fix dependencies on x-terminal-emulator by prefering a real xterm.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 25 May 2008 17:04:04 +0200
+
 sidux-vdr (1.3.8) unstable; urgency=low
 
   * depend on vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan and drop
