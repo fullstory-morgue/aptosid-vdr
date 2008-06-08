@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Horst Tritremmel <peter_weber69@gmx.at>
 Build-Depends: cdbs, debhelper (>= 6)
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Vcs-Svn: svn://svn.berlios.de/fullstory/sidux-vdr/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/sidux-vdr/trunk/
 
