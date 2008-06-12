@@ -8,16 +8,25 @@ TEXTDOMAIN=sidux-vdr
 
 
 [ ! -e $HOME/vdrip.conf ] && /usr/sbin/vdr-ip
-VDRIP=`head -1 $HOME/vdrip.conf`
+VDRIP=$(head -1 $HOME/vdrip.conf)
+VIDEODRIVER=""
+if [ -n "$(grep ':' ${HOME}/vdrip.conf)" ]
+	then 
+		VDRIP=$(cut -d: -f1 $HOME/vdrip.conf)
+		VIDEODRIVER=$(cut -d: -f2 $HOME/vdrip.conf)
+		[ -n "${VIDEODRIVER}" ] && VIDEODRIVER="--video=${VIDEODRIVER}"
+		echo "VDRIP=$VDRIP"
+		echo "VIDEODRIVER=${VIDEODRIVER}"
 
+fi
 
 # is vdr running
-vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
+vdrrun="1" && vdrrun=$(/etc/init.d/vdr status| grep -c not)
 [ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && sleep 5  # wait for xine-autostart if kdestart is to fast
-vdrrun="1" && vdrrun=`/etc/init.d/vdr status| grep -c not`
+vdrrun="1" && vdrrun=$(/etc/init.d/vdr status| grep -c not)
 [ "$vdrrun" = "1" ] && [ $VDRIP = "localhost" -o $VDRIP = "127.0.0.1" ] && su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-start"
 
-runxine="0" && runxine=`ps -A|grep -c xine`
+runxine="0" && runxine=$(ps -A|grep -c xine)
 [ ! "$runxine" = "0" ] && /usr/sbin/vdr-xine-close 2>/dev/null
 sleep 1
 
@@ -41,7 +50,7 @@ else
            [ ! -e /usr/bin/vdr-sxfe ] && \
                su-to-root -X -c "/usr/bin/x-terminal-emulator -e apt-get update; x-terminal-emulator -e apt-get install xineliboutput-sxfe"
                #/usr/bin/vdr-sxfe ${XineFullscreen} --post tvtime:method=Linear,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1 $MRL
-               /usr/bin/vdr-sxfe ${XineFullscreen} $MRL
+               /usr/bin/vdr-sxfe ${XineFullscreen} ${VIDEODRIVER} $MRL
         fi
 	[ "$1" = "xine" -o "$1" = "" ] && xine ${XineFullscreen} -g -D --no-splash "$MRL#nocache;demux:mpeg_block" &
 fi
