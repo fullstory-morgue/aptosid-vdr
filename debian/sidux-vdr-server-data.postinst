@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 # Create conffiles for vdr that do not exist yet
 CONFFILES="setup.conf remote.conf remote.KBD.conf remote.XKeySym.conf"
