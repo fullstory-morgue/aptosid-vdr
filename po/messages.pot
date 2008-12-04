@@ -1,95 +1,3 @@
-#: vdr-start-menu/vdr-start-menu:14 xine-client/vdr-start-menu:12
-msgid "VDR Menu"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:15 xine-client/vdr-start-menu:13
-msgid "Start VDR Programs\\n\\nMake your choice:"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:16 xine-client/vdr-start-menu:14
-msgid "xine"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:17 xine-client/vdr-start-menu:15
-msgid "sx(fb)fe-player (TV-Picture)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:17 xine-client/vdr-start-menu:15
-msgid "xine-player (TV-Picture)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:17 xine-client/vdr-start-menu:15
-msgid "fbfe-player (TV-Picture Framebuffer)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:18 xine-client/vdr-start-menu:16
-msgid "Get xine Keyboardlayout for VDR"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:19 xine-client/vdr-start-menu:17
-msgid "Show xine Keyboardlayout"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:20 xine-client/vdr-start-menu:18
-msgid "Change VDR IP-Adress for Xine-Player"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:21
-msgid "VDR"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:22
-msgid "Start VDR"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:23
-msgid "Stop VDR"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:24
-msgid "Change VDR Channelslist"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:25
-msgid "Allow client connect (insert IP from client)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:26
-msgid "VDR-Channelscan Analog-Tuner Typ PVR"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:27
-msgid "Choose VDR-Harddiskpartition for recordings (Linux/FAT)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:28 xine-client/vdr-start-menu:19
-msgid "Miscellaneous"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:29 xine-client/vdr-start-menu:20
-msgid "VDR-Update"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:30
-msgid "VDR-Autostart"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:31 xine-client/vdr-start-menu:21
-msgid "Xine-Autostart (TV-Picture)"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:33
-msgid "Kanotix-VDR config"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:33
-msgid "VDR User Manual"
-msgstr ""
-
-#: vdr-start-menu/vdr-start-menu:34 xine-client/vdr-start-menu:24
-msgid "Exit"
-msgstr ""
-
 #: script/vdr-autorun:9
 msgid "VDR Autostart"
 msgstr ""
@@ -98,224 +6,65 @@ msgstr ""
 msgid "Shall VDR be started as default at boottime?"
 msgstr ""
 
-#: script/vdr-autorun:26 script/vdr-update:48 script/vdr-w_pvrscan:38
-#: script/vdr-w_scan:53 script/vdr-xine-autorun:39 script/vdr-xine-keymap:48
-#: script/vdr-xine-tasteninfo:31
+#: script/vdr-autorun:21 script/vdr-update:24 script/vdr-xine-autorun:25
+#: script/vdr-xine-tasteninfo:30
 msgid "Press any key"
 msgstr ""
 
-#: script/vdr-channelswitch:129
-msgid "Channellist not found"
+#: script/vdr-channelswitch:26
+msgid "Choose Channellist"
 msgstr ""
 
-#: script/vdr-channelswitch:137
-msgid ""
-"Please start article one Player in the VDR-Start-Menu\\nBackup of "
-"Channellist: $BACKUPFILE"
+#: script/vdr-channelswitch:40
+msgid "Backup Channellist\\n$BACKUPFILE"
 msgstr ""
 
-#: script/vdr-config:57
-msgid "Select the VDR-OSD-Language:"
+#: script/vdr-ip:20
+msgid "VDR Server IP"
 msgstr ""
 
-#: script/vdr-config:57
-msgid "English"
-msgstr ""
-
-#: script/vdr-config:57
-msgid "German"
-msgstr ""
-
-#: script/vdr-config:74
-msgid "Configure VDR-Xine:"
-msgstr ""
-
-#: script/vdr-config:74
-msgid "Start VDR-Xine in Normal mode"
-msgstr ""
-
-#: script/vdr-config:74
-msgid "Start VDR-Xine in Fullscreen mode"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "VDR-Configuration:"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "VDR-Xine configuration"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Fullscreen mode"
-msgstr ""
-
-#: script/vdr-config:107
-msgid "VDR-Server configuration"
-msgstr ""
-
-#: script/vdr-config:107
-msgid "VDR Language"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Exit Configuration"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Set VDR-language automatically"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Manually define VDR-language (see VDR-OSD-Menu)"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Configure Network-Transport:"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Start Network Transport in tcp mode"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Start Network Transport in udp mode"
-msgstr ""
-
-#: script/vdr-config:107 script/vdr-config:116
-msgid "Xine Network Transport (tcp or udp)"
-msgstr ""
-
-#: script/vdr-start:24 script/vdr-w_pvrscan:25 script/vdr-w_scan:26
+#: script/vdr-start:84
 msgid "Please wait ..."
 msgstr ""
 
-#: script/vdr-update:28
-msgid "Installscript"
-msgstr ""
-
-#: script/vdr-update:29 script/vdr-xine-keymap:27
-msgid ""
-"When running this script, you need an active internet connection!\\n"
-"\\nProceed"
-msgstr ""
-
-#: script/vdr-update:34
+#: script/vdr-update:10
 msgid "VDR Update Start"
 msgstr ""
 
-#: script/vdr-update:45
+#: script/vdr-update:21
 msgid "Update done"
 msgstr ""
 
-#: script/vdr-plugin-live:54
-msgid "Warning: Password will be echoed and stored unencrypted in $USERCONFIG!"
+#: script/vdr-videodir:23
+msgid "Choose partition"
 msgstr ""
 
-#: script/vdr-plugin-live:55
-msgid "VDRLive Username: "
-msgstr ""
-
-#: script/vdr-vdradmin:57
-msgid "VDRLive Password: "
-msgstr ""
-
-#: script/vdr-vdradmin:62
-msgid "Your username/password has been written to $USERCONFIG"
-msgstr ""
-
-#: script/vdr-vdradmin:80
-msgid "VDRLive"
-msgstr ""
-
-#: script/vdr-vdradmin:80
-msgid "VDRLive Username"
-msgstr ""
-
-#: script/vdr-vdradmin:80
-msgid "VDRLive Password"
-msgstr ""
-
-#: script/vdr-videodir:34
-msgid "Abort"
-msgstr ""
-
-#: script/vdr-videodir:47
+#: script/vdr-videodir:37
 msgid "Creating /media/$VIDEO_PART"
 msgstr ""
 
-#: script/vdr-videodir:55
+#: script/vdr-videodir:46
 msgid "Creating $VIDEO_DIR"
 msgstr ""
 
-#: script/vdr-videodir:65
+#: script/vdr-videodir:69
 msgid "Your new video directory: $VIDEO_DIR"
 msgstr ""
 
-#: script/vdr-w_pvrscan:24
-msgid "Plugin $1"
-msgstr ""
-
-#: script/vdr-w_pvrscan:35 script/vdr-w_scan:50
-msgid ""
-"/var/lib/vdr/channels.conf done, Backup of existing channels.conf see "
-"$BACKUPFILE"
-msgstr ""
-
-#: script/vdr-w_scan:34
-msgid "Channelscan for dvb-c/t"
-msgstr ""
-
-#: script/vdr-w_scan:35
-msgid "Make your choice:"
-msgstr ""
-
-#: script/vdr-w_scan:36
-msgid "DVB-T"
-msgstr ""
-
-#: script/vdr-w_scan:37
-msgid "DVB-C"
-msgstr ""
-
-#: script/vdr-w_scan:38
-msgid "DVB-C modulation type QAM-256"
-msgstr ""
-
-#: script/vdr-w_scan:39
-msgid "DVB-C,Radio-, ignore Pay-TV"
-msgstr ""
-
-#: script/vdr-w_scan:40
-msgid "DVB-T with bad reception"
-msgstr ""
-
-#: script/vdr-xine-autorun:24
+#: script/vdr-xine-autorun:9
 msgid "Xine Autostart"
 msgstr ""
 
-#: script/vdr-xine-autorun:24
+#: script/vdr-xine-autorun:9
 msgid "Shall Xine-Player (TV Picture) be started as default with KDE?"
 msgstr ""
 
-#: script/vdr-xine-autorun:31
+#: script/vdr-xine-autorun:17
 msgid "Xine Autostart active!"
 msgstr ""
 
-#: script/vdr-xine-autorun:35
+#: script/vdr-xine-autorun:21
 msgid "Xine Autostart not active!"
-msgstr ""
-
-#: script/vdr-xine-keymap:26
-msgid "VDR-xine Keyboardlayout"
-msgstr ""
-
-#: script/vdr-xine-keymap:32
-msgid "Getting xine settings for VDR  (~/.xine/config, ~/.xine/keymap) ..."
-msgstr ""
-
-#: script/vdr-xine-keymap:45
-msgid "Your xine configuration was backed up in $BACKUPFILE gesichert!"
 msgstr ""
 
 #: script/vdr-xine-tasteninfo:9

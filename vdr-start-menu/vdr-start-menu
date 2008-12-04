@@ -38,15 +38,14 @@ ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake
 	"6) $(gettext "Stop VDR")" \
 	"7) $(gettext "Change VDR Channelslist")" \
 	"8) $(gettext "Allow client connect (insert IP from client)")" \
-	"9) $(gettext "VDR-Channelscan Analog-Tuner Typ PVR")" \
-	"10) $(gettext "Choose VDR-Harddiskpartition for recordings (Linux/FAT)")" \
-	"11) $(gettext "VDR-Update")" \
-	"12) $(gettext "VDR-Autostart")" \
-	"13) $(gettext "Xine-Autostart (TV-Picture)")" \
-	"14) $(gettext "vdrlive (Webfrontend)")" \
-	"15) $(gettext "VDR User Manual")" \
-	"16) $(gettext "Show xine Keyboardlayout")" \
-	"17) $(gettext "Exit")" \
+	"9) $(gettext "Choose VDR-Harddiskpartition for recordings (Linux/FAT)")" \
+	"10) $(gettext "VDR-Update")" \
+	"11) $(gettext "VDR-Autostart")" \
+	"12) $(gettext "Xine-Autostart (TV-Picture)")" \
+	"13) $(gettext "vdrlive (Webfrontend)")" \
+	"14) $(gettext "VDR User Manual")" \
+	"15) $(gettext "Show xine Keyboardlayout")" \
+	"16) $(gettext "Exit")" \
       || exit
 
 answer=$(echo "$SSFT_RESULT" | cut -d\) -f1)
@@ -71,30 +70,27 @@ case $answer in
 		su-to-root -X -c "/usr/bin/kwrite /etc/vdr/plugins/streamdevhosts.conf /etc/vdr/svdrphosts.conf"
 		;;
 	"9")
-		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-w_pvrscan pvrinput"
-		;;
-	"10")
 		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-videodir"
 		;;
-	"11")
+	"10")
 		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-update"
 		;;
-	"12")
+	"11")
 		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-autorun"
 		;;
-	"13")
+	"12")
 		x-terminal-emulator -e /usr/sbin/vdr-xine-autorun
 		;;
-	"14")
+	"13")
 		/usr/sbin/vdr-live
 		;;
-	"15")
+	"14")
 		x-www-browser "http://${VDRMANUAL}" &
 		;;
-	"16")
+	"15")
 		x-terminal-emulator -e /usr/sbin/vdr-xine-tasteninfo
 		;;
-	"17")
+	"16")
 		exit
 		;;
 	*)
