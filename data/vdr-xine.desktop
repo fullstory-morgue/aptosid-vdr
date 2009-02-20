@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Exec=xine -f -g --no-splash "xvdr:tcp://127.0.0.1#nocache;demux:mpeg_block"
 Icon=/usr/share/pixmaps/vdr.png
