@@ -2,8 +2,8 @@ Source: sidux-vdr
 Section: misc
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.3
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
 Vcs-Svn: svn://svn.berlios.de/fullstory/sidux-vdr/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/sidux-vdr/trunk/
 
@@ -44,7 +44,6 @@ Depends: ${misc:Depends},
  vdr-addon-noad,
  vdr-plugin-newsticker,
  vdr-plugin-autotimeredit,
- vdr-plugin-premiereepg,
  vdr-plugin-radio,
  vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan,
  vdr-skins,
