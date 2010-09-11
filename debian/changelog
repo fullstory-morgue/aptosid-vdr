@@ -1,8 +1,8 @@
-sidux-vdr (1.3.18) UNRELEASED; urgency=low
+sidux-vdr (1.3.18) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * switch to compat level 8.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 16:38:35 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 08 Aug 2010 05:28:06 +0200
 
 sidux-vdr (1.3.17) unstable; urgency=low
 
