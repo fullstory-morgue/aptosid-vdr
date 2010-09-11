@@ -1,14 +1,14 @@
-sidux-vdr (1.3.17) UNRELEASED; urgency=low
+sidux-vdr (1.3.17) unstable; urgency=low
 
-  * NOT RELEASED YET
   * bump standards version to 3.9.1, no changes necessary.
   * use set -e for maintainer scripts, instead of #!/bin/sh, to support all
     SUSv3 compatible shells and make lintian happy.
   * move sub-functionality from /usr/sbin/ to /usr/share/sidux-vdr/, none of
     those scripts are meant to be called by hand.
   * Breaks too old vdr-gui.
+  * elaborate long description a bit further, to make lintian happy.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 16:24:51 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 16:36:43 +0200
 
 sidux-vdr (1.3.16) unstable; urgency=low
 

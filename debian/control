@@ -36,7 +36,9 @@ Suggests: sidux-vdr-server-extra,
  vdr-gui
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs sidux-vdr-data (or sidux-vdr-client-data).
- It may be safely removed from your system.
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
 
 Package: sidux-vdr-server-extra
 Architecture: all
@@ -52,7 +54,9 @@ Depends: ${misc:Depends},
  vdr-plugin-undelete
 Description: metapackage to install the sidux-vdr-menu and xine
  This metapackage installs useful optional plugins for sidux-vdr-server.
- It may be safely removed from your system.
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
 
 Package: sidux-vdr-client
 Architecture: all
@@ -84,8 +88,14 @@ Recommends: distro-defaults,
 Provides: sidux-vdr-data
 Conflicts: sidux-vdr-client-data
 Breaks: vdr-gui (<< 0.2.19)
-Description: channellists, scripts and data for sidux-vdr-server
- architecture agnostic support files for sidux-vdr client.
+Description: vdr-start menu and data files for sidux-vdr-server
+ architecture agnostic support files for sidux-vdr servers:
+  * initial channel lists
+  * graphics
+  * shell modules
+  * i18n
+ .
+ This includes data files for sidux-vdr-client-data
 
 Package: sidux-vdr-client-data
 Architecture: all
@@ -96,8 +106,11 @@ Depends: ${misc:Depends},
  menu
 Conflicts: sidux-vdr-server-data
 Breaks: vdr-gui (<< 0.2.19)
-Description: vdr-start-menu and its scripts for sidux-vdr-client
- architecture agnostic support files for sidux-vdr servers.
+Description: vdr-start-menu for sidux-vdr-client
+ architecture agnostic support files for sidux-vdr clients:
+  * graphics
+  * shell modules
+  * i18n
 
 Package: sidux-vdr-xine
 Architecture: all
