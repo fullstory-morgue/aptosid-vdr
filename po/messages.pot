@@ -6,7 +6,7 @@ msgstr ""
 msgid "Shall VDR be started as default at boottime?"
 msgstr ""
 
-#: script/vdr-autorun:21 script/vdr-update:24 script/vdr-xine-autorun:25
+#: script/vdr-autorun:21 script/vdr-xine-autorun:25
 #: script/vdr-xine-tasteninfo:30
 msgid "Press any key"
 msgstr ""
@@ -25,14 +25,6 @@ msgstr ""
 
 #: script/vdr-start:84
 msgid "Please wait ..."
-msgstr ""
-
-#: script/vdr-update:10
-msgid "VDR Update Start"
-msgstr ""
-
-#: script/vdr-update:21
-msgid "Update done"
 msgstr ""
 
 #: script/vdr-videodir:23

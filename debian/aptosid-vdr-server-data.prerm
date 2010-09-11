@@ -15,8 +15,8 @@ case "$1" in
     remove)
         for CONF in $CONFFILES
         do
-            if [ -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/sidux-vdr/$CONF" ]; then
-                if diff -q "/var/lib/vdr/$CONF" "/var/lib/vdr/sidux-vdr/$CONF"; then
+            if [ -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/aptosid-vdr/$CONF" ]; then
+                if diff -q "/var/lib/vdr/$CONF" "/var/lib/vdr/aptosid-vdr/$CONF"; then
                     rm "/var/lib/vdr/$CONF"
                 else
                     echo "=> not removing vdr config file $CONF"

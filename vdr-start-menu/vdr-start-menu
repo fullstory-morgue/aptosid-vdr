@@ -11,7 +11,7 @@ else
 fi
 
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=sidux-vdr
+export TEXTDOMAIN=aptosid-vdr
 
 
 # determine system status
@@ -39,7 +39,6 @@ ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake
 	"7) $(gettext "Change VDR Channelslist")" \
 	"8) $(gettext "Allow client connect (insert IP from client)")" \
 	"9) $(gettext "Choose VDR-Harddiskpartition for recordings (Linux/FAT)")" \
-	"10) $(gettext "VDR-Update")" \
 	"11) $(gettext "VDR-Autostart")" \
 	"12) $(gettext "Xine-Autostart (TV-Picture)")" \
 	"13) $(gettext "vdrlive (Webfrontend)")" \
@@ -71,9 +70,6 @@ case $answer in
 		;;
 	"9")
 		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-videodir"
-		;;
-	"10")
-		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-update"
 		;;
 	"11")
 		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-autorun"

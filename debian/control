@@ -1,27 +1,29 @@
-Source: sidux-vdr
+Source: aptosid-vdr
 Section: misc
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Build-Depends: debhelper (>= 7.9.3)
 Standards-Version: 3.9.1
-Vcs-Svn: svn://svn.berlios.de/fullstory/sidux-vdr/trunk
-Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/sidux-vdr/trunk/
+Vcs-Svn: svn://svn.berlios.de/fullstory/aptosid-vdr/trunk
+Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/aptosid-vdr/trunk/
 
-Package: sidux-vdr
+Package: aptosid-vdr
 Architecture: all
 Depends: ${misc:Depends},
- sidux-vdr-server,
- sidux-vdr-client
-Description: metapackage to install sidux-vdr-server and -client packages
- This metapackage depends on sidux-vdr-server and sidux-vdr-client.
+ aptosid-vdr-server,
+ aptosid-vdr-client
+Breaks: sidux-vdr (<< 1.4.0)
+Replaces: sidux-vdr (<< 1.4.0)
+Description: metapackage to install aptosid-vdr-server and -client packages
+ This metapackage depends on aptosid-vdr-server and aptosid-vdr-client.
  .
  It may be safely removed from your system without removing actual
  functionality.
 
-Package: sidux-vdr-server
+Package: aptosid-vdr-server
 Architecture: all
 Depends: ${misc:Depends},
- sidux-vdr-server-data,
+ aptosid-vdr-server-data,
  vdr,
  vdr-plugin-xineliboutput,
  vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan,
@@ -32,18 +34,20 @@ Depends: ${misc:Depends},
  vdr-plugin-text2skin,
  vdr-plugin-live,
  vdr-plugin-epgsearch
-Suggests: sidux-vdr-server-extra,
+Suggests: aptosid-vdr-server-extra,
  vdr-gui
-Description: metapackage to install the sidux-vdr-menu and xine
- This metapackage installs sidux-vdr-data (or sidux-vdr-client-data).
+Breaks: sidux-vdr-server (<< 1.4.0)
+Replaces: sidux-vdr-server (<< 1.4.0)
+Description: metapackage to install the aptosid-vdr-menu and xine
+ This metapackage installs aptosid-vdr-data (or aptosid-vdr-client-data).
  .
  It may be safely removed from your system without removing actual
  functionality.
 
-Package: sidux-vdr-server-extra
+Package: aptosid-vdr-server-extra
 Architecture: all
 Depends: ${misc:Depends},
- sidux-vdr-server,
+ aptosid-vdr-server,
  vdr-plugin-streamdev-server,
  vdr-addon-noad,
  vdr-plugin-newsticker,
@@ -52,27 +56,31 @@ Depends: ${misc:Depends},
  vdr-plugin-reelchannelscan | vdr-plugin-wirbelscan,
  vdr-skins,
  vdr-plugin-undelete
-Description: metapackage to install the sidux-vdr-menu and xine
- This metapackage installs useful optional plugins for sidux-vdr-server.
+Breaks: sidux-vdr-server-extra (<< 1.4.0)
+Replaces: sidux-vdr-server-extra (<< 1.4.0)
+Description: metapackage to install the aptosid-vdr-menu and xine
+ This metapackage installs useful optional plugins for aptosid-vdr-server.
  .
  It may be safely removed from your system without removing actual
  functionality.
 
-Package: sidux-vdr-client
+Package: aptosid-vdr-client
 Architecture: all
 Depends: ${misc:Depends},
- sidux-vdr-client-data | sidux-vdr-data,
+ aptosid-vdr-client-data | aptosid-vdr-data,
  libxine1-xvdr,
  libxine1,
  libxine1-ffmpeg,
  libxineliboutput-sxfe,
  xineliboutput-sxfe
-Description: metapackage to install the sidux-vdr-menu and xine
- This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
+Breaks: sidux-vdr-client (<< 1.4.0)
+Replaces: sidux-vdr-client (<< 1.4.0)
+Description: metapackage to install the aptosid-vdr-menu and xine
+ This metapackage installs aptosid-vdr-data (or aptosid-vdr-client-data) and 
  libxine1-xvdr.
  It may be safely removed from your system.
 
-Package: sidux-vdr-server-data
+Package: aptosid-vdr-server-data
 Architecture: all
 Depends: ${misc:Depends},
  vdr,
@@ -85,19 +93,20 @@ Depends: ${misc:Depends},
 Recommends: distro-defaults,
  w-scan,
  vdr-gui
-Provides: sidux-vdr-data
-Conflicts: sidux-vdr-client-data
-Breaks: vdr-gui (<< 0.2.19)
-Description: vdr-start menu and data files for sidux-vdr-server
- architecture agnostic support files for sidux-vdr servers:
+Provides: aptosid-vdr-data
+Conflicts: aptosid-vdr-client-data, sidux-vdr-client-data
+Breaks: vdr-gui (<< 0.2.19), sidux-vdr-server-data (<< 1.4.0)
+Replaces: sidux-vdr-server-data (<< 1.4.0)
+Description: vdr-start menu and data files for aptosid-vdr-server
+ architecture agnostic support files for aptosid-vdr servers:
   * initial channel lists
   * graphics
   * shell modules
   * i18n
  .
- This includes data files for sidux-vdr-client-data
+ This includes data files for aptosid-vdr-client-data
 
-Package: sidux-vdr-client-data
+Package: aptosid-vdr-client-data
 Architecture: all
 Depends: ${misc:Depends},
  ssft,
@@ -105,18 +114,106 @@ Depends: ${misc:Depends},
  procps,
  menu
 Conflicts: sidux-vdr-server-data
-Breaks: vdr-gui (<< 0.2.19)
-Description: vdr-start-menu for sidux-vdr-client
- architecture agnostic support files for sidux-vdr clients:
+Breaks: vdr-gui (<< 0.2.19), sidux-vdr-client-data (<< 1.4.0)
+Replaces: sidux-vdr-client-data (<< 1.4.0)
+Description: vdr-start-menu for aptosid-vdr-client
+ architecture agnostic support files for aptosid-vdr clients:
   * graphics
   * shell modules
   * i18n
 
+Package: aptosid-vdr-xine
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-client
+Breaks: sidux-vdr-xine (<< 1.4.0)
+Replaces: sidux-vdr-xine (<< 1.4.0)
+Description: metapackage to install aptosid-vdr-client
+ This is a metapackage provided for compatibility reasons
+ and it should only install aptosid-vdr-client, which replaces
+ aptosid-vdr-xine.
+
+Package: sidux-vdr
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr
+Description: metapackage to install aptosid-vdr-server and -client packages
+ This metapackage depends on aptosid-vdr-server and aptosid-vdr-client.
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
+ .
+ transitional metapackage to pull in aptosid-vdr
+
+Package: sidux-vdr-server
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-server
+Description: metapackage to install the aptosid-vdr-menu and xine
+ This metapackage installs aptosid-vdr-data (or aptosid-vdr-client-data).
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
+ .
+ transitional metapackage to pull in aptosid-vdr-server
+
+Package: sidux-vdr-server-extra
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-server-extra
+Description: metapackage to install the aptosid-vdr-menu and xine
+ This metapackage installs useful optional plugins for aptosid-vdr-server.
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
+ .
+ transitional metapackage to pull in aptosid-vdr-server-extra
+
+Package: sidux-vdr-client
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-client-data | aptosid-vdr-data
+Description: metapackage to install the sidux-vdr-menu and xine
+ This metapackage installs sidux-vdr-data (or sidux-vdr-client-data) and 
+ libxine1-xvdr.
+ It may be safely removed from your system.
+ .
+ transitional metapackage to pull in aptosid-vdr-client
+
+Package: sidux-vdr-server-data
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-server-data
+Description: vdr-start menu and data files for aptosid-vdr-server
+ architecture agnostic support files for aptosid-vdr servers:
+  * initial channel lists
+  * graphics
+  * shell modules
+  * i18n
+ .
+ This includes data files for aptosid-vdr-client-data
+ .
+ transitional metapackage to pull in aptosid-vdr-server-data
+
+Package: sidux-vdr-client-data
+Architecture: all
+Depends: ${misc:Depends},
+ aptosid-vdr-client-data
+Description: vdr-start-menu for aptosid-vdr-client
+ architecture agnostic support files for aptosid-vdr clients:
+  * graphics
+  * shell modules
+  * i18n
+ .
+ transitional metapackage to pull in aptosid-vdr-client-data
+
 Package: sidux-vdr-xine
 Architecture: all
 Depends: ${misc:Depends},
- sidux-vdr-client
-Description: metapackage to install sidux-vdr-client
+ aptosid-vdr-xine
+Description: metapackage to install aptosid-vdr-client
  This is a metapackage provided for compatibility reasons
- and it should only install sidux-vdr-client, which replaces
- sidux-vdr-xine.
+ and it should only install aptosid-vdr-client, which replaces
+ aptosid-vdr-xine.
+ .
+ transitional metapackage to pull in aptosid-vdr-xine

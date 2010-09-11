@@ -2,7 +2,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=sidux-vdr
+export TEXTDOMAIN=aptosid-vdr
 
 # determine system status
 SSFTSH="$(which ssft.sh)"			|| SSFTSH="/usr/bin/ssft.sh"

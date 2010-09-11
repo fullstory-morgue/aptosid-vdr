@@ -4,7 +4,7 @@
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=sidux-vdr
+export TEXTDOMAIN=aptosid-vdr
 
 PART=`fdisk -l | grep -e "^/dev/" | grep -e "Linux" | grep -v "Swap" | cut -c6-12,57-66 | awk -F' ' '{print $1"_"$2}' && \
       fdisk -l | grep -e "^/dev/" | grep -e "FAT" | cut -c6-12,60-66 | awk -F' ' '{print $1"_"$2}' `

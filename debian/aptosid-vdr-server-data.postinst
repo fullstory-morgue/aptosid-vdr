@@ -8,8 +8,8 @@ case "$1" in
     configure)
         for CONF in $CONFFILES
         do
-            if [ ! -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/sidux-vdr/$CONF" ]; then
-                cp -f "/var/lib/vdr/sidux-vdr/$CONF" "/var/lib/vdr/$CONF"
+            if [ ! -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/aptosid-vdr/$CONF" ]; then
+                cp -f "/var/lib/vdr/aptosid-vdr/$CONF" "/var/lib/vdr/$CONF"
             fi
         done
         ;;

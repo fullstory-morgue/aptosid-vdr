@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # global configuration file - see vdr-config for more info
-CONFIGFILE="/var/lib/vdr/sidux-vdr/sidux-vdr.conf"
+CONFIGFILE="/var/lib/vdr/aptosid-vdr/aptosid-vdr.conf"
 
 # Localisation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=sidux-vdr
+export TEXTDOMAIN=aptosid-vdr
 
 VIDEO_DIR="/var/lib/video.00"
 
@@ -16,9 +16,9 @@ VIDEO_DIR="/var/lib/video.00"
 CONFFILES="setup.conf remote.conf"
 for CONF in $CONFFILES
   do
-      if [ ! -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/sidux-vdr/$CONF" ]; then
-          echo "copy /var/lib/vdr/sidux-vdr/$CONF"
-          cp -f "/var/lib/vdr/sidux-vdr/$CONF" "/var/lib/vdr/$CONF"
+      if [ ! -e "/var/lib/vdr/$CONF" ] && [ -f "/var/lib/vdr/aptosid-vdr/$CONF" ]; then
+          echo "copy /var/lib/vdr/aptosid-vdr/$CONF"
+          cp -f "/var/lib/vdr/aptosid-vdr/$CONF" "/var/lib/vdr/$CONF"
           chown vdr:vdr "/var/lib/vdr/$CONF"
      fi
   done
@@ -44,7 +44,7 @@ fi
 xlop=$(grep "xineliboutput" "/var/lib/vdr/setup.conf")
 if [ "$xlop" = ""  ] ; then 
      echo "add xineliboutput preferences to /var/lib/vdr/setup.conf"
-     grep "xineliboutput" "/var/lib/vdr/sidux-vdr/setup.conf" >> "/var/lib/vdr/setup.conf"
+     grep "xineliboutput" "/var/lib/vdr/aptosid-vdr/setup.conf" >> "/var/lib/vdr/setup.conf"
      #sed -ie '/./!d' /var/lib/vdr/setup.conf
 fi
 
@@ -60,7 +60,7 @@ fi
 xkeysym=$(grep "XKeySym" "/var/lib/vdr/remote.conf")
 if [ "$xkeysym" = ""  ] ; then 
      echo "add XKeySym Keys to /var/lib/vdr/remote.conf"
-     cat "/var/lib/vdr/sidux-vdr/remote.XKeySym.conf" >> "/var/lib/vdr/remote.conf"
+     cat "/var/lib/vdr/aptosid-vdr/remote.XKeySym.conf" >> "/var/lib/vdr/remote.conf"
      sed -ie '/./!d' /var/lib/vdr/remote.conf
 fi
 

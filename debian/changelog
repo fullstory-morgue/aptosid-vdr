@@ -1,8 +1,10 @@
-sidux-vdr (1.3.19) UNRELEASED; urgency=low
+aptosid-vdr (1.4.0) ORPHANED; urgency=low
 
   * NOT RELEASED YET
+  * ORPHAN PACKAGE
+  * rename package to aptosid-vdr.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 08 Aug 2010 05:28:20 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 26 Aug 2010 01:23:33 +0200
 
 sidux-vdr (1.3.18) unstable; urgency=low
 

@@ -19,7 +19,7 @@ msgstr "VDR Autostart"
 msgid "Shall VDR be started as default at boottime?"
 msgstr "Soll VDR automatisch beim Systemstart gestartet werden?"
 
-#: script/vdr-autorun:21 script/vdr-update:24 script/vdr-xine-autorun:25
+#: script/vdr-autorun:21 script/vdr-xine-autorun:25
 #: script/vdr-xine-tasteninfo:30
 msgid "Press any key"
 msgstr "Taste drücken"
@@ -40,14 +40,6 @@ msgstr ""
 #: script/vdr-start:84
 msgid "Please wait ..."
 msgstr "Bitte warten ..."
-
-#: script/vdr-update:10
-msgid "VDR Update Start"
-msgstr "VDR Update Start"
-
-#: script/vdr-update:21
-msgid "Update done"
-msgstr "Update ausgeführt"
 
 #: script/vdr-videodir:23
 msgid "Choose partition"
@@ -197,9 +189,6 @@ msgstr " Vollbild             f"
 
 #~ msgid "Miscellaneous"
 #~ msgstr "Sonstiges"
-
-#~ msgid "VDR-Update"
-#~ msgstr "VDR-Update"
 
 #~ msgid "VDR-Autostart"
 #~ msgstr "VDR-Autostart"

@@ -1,10 +1,10 @@
 #!/bin/sh
 
-USERCONFIG="$HOME/.sidux-vdr.conf"
+USERCONFIG="$HOME/.aptosid-vdr.conf"
 
 # Localisation
 TEXTDOMAINDIR="/usr/share/locale"
-TEXTDOMAIN=sidux-vdr
+TEXTDOMAIN=aptosid-vdr
 
 
 [ ! -e $HOME/vdrip.conf ] && /usr/sbin/vdr-ip

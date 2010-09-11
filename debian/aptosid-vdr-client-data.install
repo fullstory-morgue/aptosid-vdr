@@ -1,0 +1,9 @@
+data/vdr.png			usr/share/pixmaps/
+data/*.desktop			usr/share/applications/aptosid/
+script/vdr-ip			usr/share/aptosid-vdr/
+script/vdr-live			usr/share/aptosid-vdr/
+script/vdr-xine			usr/share/aptosid-vdr/
+script/vdr-xine-autorun		usr/share/aptosid-vdr/
+script/vdr-xine-close		usr/share/aptosid-vdr/
+script/vdr-xine-tasteninfo	usr/share/aptosid-vdr/
+xine-client/vdr-start-menu	usr/sbin/

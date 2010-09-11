@@ -8,7 +8,7 @@ else
 fi
 
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=sidux-vdr
+export TEXTDOMAIN=aptosid-vdr
 
 
 # determine system status
@@ -26,7 +26,6 @@ VDRMANUAL="www.linuxtv.org/vdrwiki/index.php/VDR_User%27s_Manual"
 ssft_select_single  $(gettext "VDR Menu")" $(gettext "Start VDR Programs\n\nMake your choice:")" \
 	"1) $(gettext "sx(fb)fe-player (TV-Picture)")" \
 	"4) $(gettext "Change VDR IP-Adress for Xine-Player")" \
-	"5) $(gettext "VDR-Update")" \
 	"6) $(gettext "Xine-Autostart (TV-Picture)")" \
 	"7) $(gettext "vdrlive (Webfrontend)")" \
 	"8) $(gettext "VDR User Manual")" \
@@ -42,9 +41,6 @@ case $answer in
 		;;
 	"4")
     		/usr/sbin/vdr-ip
-		;;
-	"5")
-		su-to-root -X -c "/usr/bin/x-terminal-emulator -e /usr/sbin/vdr-update"
 		;;
 	"6")
 		x-terminal-emulator -e /usr/sbin/vdr-xine-autorun
@@ -67,4 +63,3 @@ case $answer in
 esac
 
 exec /usr/sbin/vdr-start-menu
-
