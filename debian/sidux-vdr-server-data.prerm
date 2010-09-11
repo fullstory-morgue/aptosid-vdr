@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
+set -e
 
 CONFFILES="setup.conf remote.conf remote.KBD.conf remote.XKeySym.conf"
 

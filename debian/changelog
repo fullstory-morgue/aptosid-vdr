@@ -2,8 +2,10 @@ sidux-vdr (1.3.17) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
   * bump standards version to 3.9.1, no changes necessary.
+  * use set -e for maintainer scripts, instead of #!/bin/sh, to support all
+    SUSv3 compatible shells and make lintian happy.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 01:42:14 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 16:00:56 +0200
 
 sidux-vdr (1.3.16) unstable; urgency=low
 
