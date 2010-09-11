@@ -1,10 +1,10 @@
 data/vdr.png			usr/share/pixmaps/
 data/*.desktop			usr/share/applications/sidux/
-script/vdr-ip			usr/sbin/
-script/vdr-live			usr/sbin/
-script/vdr-update		usr/sbin/
-script/vdr-xine			usr/sbin/
-script/vdr-xine-autorun		usr/sbin/
-script/vdr-xine-close		usr/sbin/
-script/vdr-xine-tasteninfo	usr/sbin/
+script/vdr-ip			usr/share/sidux-vdr/
+script/vdr-live			usr/share/sidux-vdr/
+script/vdr-update		usr/share/sidux-vdr/
+script/vdr-xine			usr/share/sidux-vdr/
+script/vdr-xine-autorun		usr/share/sidux-vdr/
+script/vdr-xine-close		usr/share/sidux-vdr/
+script/vdr-xine-tasteninfo	usr/share/sidux-vdr/
 xine-client/vdr-start-menu	usr/sbin/

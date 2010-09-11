@@ -4,6 +4,8 @@ sidux-vdr (1.3.17) UNRELEASED; urgency=low
   * bump standards version to 3.9.1, no changes necessary.
   * use set -e for maintainer scripts, instead of #!/bin/sh, to support all
     SUSv3 compatible shells and make lintian happy.
+  * move sub-functionality from /usr/sbin/ to /usr/share/sidux-vdr/, none of
+    those scripts are meant to be called by hand.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Aug 2010 16:00:56 +0200
 
