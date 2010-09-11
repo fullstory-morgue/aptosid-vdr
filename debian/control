@@ -81,6 +81,7 @@ Recommends: distro-defaults,
  vdr-gui
 Provides: sidux-vdr-data
 Conflicts: sidux-vdr-client-data
+Breaks: vdr-gui (<< 0.2.19)
 Description: channellists, scripts and data for sidux-vdr-server
  architecture agnostic support files for sidux-vdr client.
 
@@ -92,6 +93,7 @@ Depends: ${misc:Depends},
  procps,
  menu
 Conflicts: sidux-vdr-server-data
+Breaks: vdr-gui (<< 0.2.19)
 Description: vdr-start-menu and its scripts for sidux-vdr-client
  architecture agnostic support files for sidux-vdr servers.
 
