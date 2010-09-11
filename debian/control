@@ -12,9 +12,11 @@ Architecture: all
 Depends: ${misc:Depends},
  sidux-vdr-server,
  sidux-vdr-client
-Description: metapackage to install sidux-vdr-server and -client
+Description: metapackage to install sidux-vdr-server and -client packages
  This metapackage depends on sidux-vdr-server and sidux-vdr-client.
- It may be safely removed from your system.
+ .
+ It may be safely removed from your system without removing actual
+ functionality.
 
 Package: sidux-vdr-server
 Architecture: all
