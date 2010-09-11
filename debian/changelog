@@ -80,7 +80,7 @@ sidux-vdr (1.3.8) unstable; urgency=low
 
 sidux-vdr (1.3.7) unstable; urgency=low
 
-  * vdr-sxfe start option changed 
+  * vdr-sxfe start option changed
 
  -- Horst Tritremmel <hjt@sidux.com>  Sat, 10 May 2008 22:12:11 +0200
 
@@ -217,7 +217,7 @@ sidux-vdr (1.2.17) unstable; urgency=low
 
 sidux-vdr (1.2.16) unstable; urgency=low
 
-  * add xineliboutput-sxfe to rules 
+  * add xineliboutput-sxfe to rules
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 15 Feb 2007 22:39:41 +0100
 
@@ -229,7 +229,7 @@ sidux-vdr (1.2.15) UNRELEASED; urgency=low
 
 sidux-vdr (1.2.14) unstable; urgency=low
 
-  * vdr-start, vdr-xine bugfix 
+  * vdr-start, vdr-xine bugfix
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Wed,  7 Feb 2007 10:39:02 +0100
 
@@ -582,7 +582,7 @@ kanotix-vdr (1.1-5) unstable; urgency=low
 
 kanotix-vdr (1.1-4) unstable; urgency=low
 
-  * Fixed some bugs 
+  * Fixed some bugs
 
  -- Peter Weber <peter_weber69@gmx.at>  Mon, 9 May 2006 16:09:38 +0200
 
@@ -608,19 +608,19 @@ kanotix-vdr (1.1-1) unstable; urgency=low
 
 kanotix-vdr (1.0-4) unstable; urgency=low
 
-  * Fixed some bugs 
+  * Fixed some bugs
 
  -- Peter Weber <peter_weber69@gmx.at>  Mon, 8 May 2006 09:46:28 +0200
 
 kanotix-vdr (1.0-3) unstable; urgency=low
 
-  * Fixed some bugs 
+  * Fixed some bugs
 
  -- Markus Schoelzel <makke@kanotixguide.org>  Fri, 5 May 2006 23:02:28 +0200
 
 kanotix-vdr (1.0-2) unstable; urgency=low
 
-  * Fixed some files in debian/ 
+  * Fixed some files in debian/
 
  -- Markus Schoelzel <makke@kanotixguide.org>  Fri, 5 May 2006 22:38:44 +0200
 
@@ -633,7 +633,7 @@ kanotix-vdr (1.0-1) unstable; urgency=low
 
 kanotix-vdr (0.3-1) unstable; urgency=low
 
-  * New upstream release 
+  * New upstream release
 
  -- Markus Schoelzel <makke@kanotixguide.org>  Fri, 5 May 2006 21:41:54 +0200
 
